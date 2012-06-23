@@ -1,0 +1,2734 @@
+/*********************************************************************************
+ *                                                                               *
+ * MultiDec                                                                      *
+ *                                                                               *
+ * Copyright (C) 1999/2000/2001/2002 Espresso                                    *
+ *                                                                               *
+ *                                                                               *
+ * This program is free software; you can redistribute it and/or                 *
+ * modify it under the terms of the GNU General Public License                   *
+ * as published by the Free Software Foundation; either version 2                *
+ * of the License, or (at your option) any later version.                        *
+ *                                                                               *
+ *                                                                               *          
+ * This program is distributed in the hope that it will be useful,               *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of                *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                 *
+ * GNU General Public License for more details.                                  *
+ *                                                                               *
+ *                                                                               *
+ * You should have received a copy of the GNU General Public License             *
+ * along with this program; if not, write to the Free Software                   *
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.    *
+ * Or, point your browser to http://www.gnu.org/copyleft/gpl.html                *
+ *                                                                               *
+ *                                                                               *
+ * Some Parts are based on the                                                   *
+ *                                                                               *
+ * Driver for the Siemens Fujitsu DVB PCI card                                   *
+ * Copyright (C) 1999 Ralph Metzler for convergence integrated media GmbH        *
+ *                                                                               *
+ * bttv - Bt848 frame grabber driver                                             *
+ * Copyright (C) 1996,97,98 Ralph  Metzler && Marcus Metzler                     *
+ *                                                                               *
+ * I2C Interface                                                                 *
+ * Copyright (C)  1998 Gerd Knorr                                                *
+ *                                                                               *
+ * programming the msp34* sound processor family                                 *
+ * Copyright (C)  1997,1998 Gerd Knorr                                           *
+ *                                                                               *
+ * saa7146 device driver                                                         *
+ * Copyright (C) 1998,1999 Michael Hunold                                        *
+ *                                                                               *
+ *                                                                               *
+ * Die Treiberschnittstelle basiert auf einer alten Trail-Version von WinDriver  *
+ * Leider fehlt mir das Geld um eine Vollversion zu kaufen, aber die abgespeckte *
+ * Demoversion beinhaltet alle Funktionen die ich benötige.                      *
+ * Jedem, der sich mit Treiberentwicklung beschäftigt (und das nötige Geld       *
+ * zur Verfügung hat), kann ich dieses Teil nur empfehlen !                      *
+ *                                                                               *
+ *********************************************************************************/ 
+
+MultiDec Version 8.2
+
+Eigentlich sehr viele Bugfixes und Änderungen.
+(DVR/EPG/DATUM/ZEIT/Volume................)
+
+MD-API stabilisiert und erweitert.
+
+
+Kabel-Benutzer möchte ich mal die Menü SAA7146->LNB/Kabeleinstellungen ans Herz legen.
+Da bitte ich um Rückmeldungen. Im Kabelbereich waren einige Bugs drinnen,
+ich hoffe die sind jetzt raus.
+
+PMT-CAT Parsing erweitert.
+
+Neue MDSAA.sys ( oder vxd ) wegen den IRQ-Problemen. Jetzt Version 2.70.
+Auf Windows 9X Systemen muß u.U. die alte  Version handisch gelöscht werden. 
+<%SYSTEMDIR%\vmm32\MDSAA.vxd>
+
+
+
+
+Neue Firmware implementiert 
+LINUX_9_3              ( die "Alte")
+LINUX_9_4_05_03        ( Version 09_04 vom 5.3 : Die erste für den TDA8083 )
+LINUX_9_4_01_04        ( Version 09_04 vom 1.4 )
+
+
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 8.1b
+
+HotFix :
+
+Ich hatte noch eine Sachen vom Rev 1.6 Test drinnen ( Sorry )
+
+( GILT NUR FÜR DIE HARDWARE 1.6
+ACHTUNG : Bei der mitgelieferten Firmware wird NICHT die LNB-Spannung versorgt !! 
+Es ist aber möglich einen Receiver mit einem LNB-Ausgang in die Leitung zu hängen und von 
+dort aus das LNB zu steuern. 
+Dies ist erst in der Firmware ab dem 05.03 von http://www.linuxdvb.tv gefixed !! 
+Ist aber nicht vollständig getestet !!! )
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+
+
+MultiDec Version 8.1
+
+Viele viele Bugs raus !!
+
+DVR sollte gehen
+VT  sollte gehen
+EIT Programminfos überarbeitet
+Eignener Tuner - gefixed 
+
+Neue Hardware 
+
+DVB-C 2.1 
+
+DVB-S 1.6  ACHTUNG : Bei der mitgelieferten Firmware wird NICHT die LNB-Spannung versorgt !! 
+Es ist aber möglich einen Receiver mit einem LNB-Ausgang in die Leitung zu hängen und von 
+dort aus das LNB zu steuern. 
+Dies ist erst in der Firmware ab dem 05.03 von http://www.linuxdvb.tv gefixed !! 
+Ist aber nicht vollständig getestet !!! )
+
+Die Firmware kann nun eigenständig geupdatet / gedowndatet werden. 
+Im Menü SAA7146 -> Einstellungen -> DVB-Optionen wird der LadePfad angegeben.
+
+Ich liefere MultiDec mit der Firmware 0.9.3 ( die letzte Version unter GPL ) aus.
+
+!!!! ( PS : Ich suche diese Firmware als Source ) !!!!
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 8.0
+
+Nachdem mir nun feste ans Bein gepinklt worden ist, habe ich mich entschlossen
+eine "neue" Version 8.0 zu machen .
+
+Die Version 8.0 enthält eine externe API-Schnittstelle um eigene Anwendungen an MultiDec 
+anzuhängen.
+
+Ich gebe MultiDec 8.0 mit den Sourcen frei, damit jeder sehen kann, das nichts illegales 
+mehr drinnen ist!!!
+ Was andere Leute treiben ist mit egal, aber MultiDec macht mir zu viel 
+Spaß, als das ich das Projekt einstellen möchte.
+
+Aus der Version 8.0 habe ich auch das Loggen entfernt!
+
+Es liegen aber 2 API-Demos den Sourcen bei!
+Eines dieser Beispiel soll die Funktionsweise von EMM-Messages demonstrieren !!!!!
+
+
+Ich hoffe, das die API zu einigen Weiterentwickelungen führt.
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 7.7
+
+
+Änderungen/Neuerungen :
+
+Loggen : 1. Pink+ und
+         2. Schaut euch nach dem Loggen mal die KID - Datei an !!
+
+Geänderte Startoptionen
+Menü SAA7146 -> Einstellungen -> DVB-Optionen
+( Probiert es einfach mal aus )
+
+
+Scannen : Sollte nun auch bei DiSEq gehen !!
+
+
+Menü SAA9146->ARM_Reset 
+Damit kann nun ein hängender Arm geresettet werden. Ich bitte um Test´s.
+Wenn das geht, kann ich das noch automatisieren.
+
+
+und und und ... 
+noch einige Bugs gefunden 
+
+Viel Spaß und Gruß Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 7.6
+
+Ab sofort kann die DVB - Karte nur noch mit der Treibererweiterung gefahren werden. 
+Einige Systeminstabilietäten sind aus dem Mix-Mode gekommen. Die einzige Lösung war die 
+Abschaffung des Generic-Modes ,und damit eine komplett neue Synchronisation der diversen
+Threads zu machen. ( Schei.... viel Arbeit und alles muß getestet werden )
+
+Mit der neuen Synchronisation sollten diverse Bugs ( Hängen der DVB-Karte ) weg sein.
+Auch ist nun sicher gestellt, das der Speicher in den die SAA bzw. STV bzw. BT-Karte reinschreibt,
+von MultiDec ist !
+
+Neu ist der MDSAA - Kernel - Treiber in der Version 2.3 !!!!!! Alle älteren Versionen 
+produzieren ab sofort nur noch Müll ( Oder einen Blue-Screen )!!!!
+
+
+
+Änderungen/Neuerungen :
+
+Der AudioBaustein wird nun automatisch erkannt :
+Verbesserte Unterstützung für DVB-C ( Volume-Control ) und der DVB-s Hardware 1.5 ( Die mit dem Crystal Audio DAC ) 
+
+Neue Taste <D> : Sofortiger Aufnahmestart ohne gedönz !
+
+Umschaltzeiten:  Im Menü SAA7146 -> Einstellungen kann nun das Umschaltverhalten eingestellt werden
+                 Beim optimierten Umschalten werden nur noch die Zustansänderungen an die DVB-Karte gegeben. 
+				 Ob mit allen Karten und DiSEqC geht kann ich nicht sagen, daher ist diese Option abschaltbar.
+				 Aus Kompatiblietätsgründen zu den alteren Version ist diese per default auf aus.
+				 Ihr solltet sie auf An stellen um in den vollen Genuß zu kommen.
+
+
+Scannen  :		 (Nach NIT oder Frequenz oder... ) Deutlich verbessert ( Geschwindigkeit )
+					Bitte überprüft im Menü Kanäle -> Verfügbare Symbolraten 
+                    Wenn dort die tatsächlich Möglichen drinnen sind ( und nicht alle ) werden die Suchzeiten weiter verkürzt.
+					Für Kabel eigentlich nur 9600.
+					Für Astra eigentlich nur 27500 und 22000.
+
+Kabel-Scan :     Bug gefunden, sollte nun alle Frequenzen absuchen !
+
+Seca :           Jetzt kann man optional auch die Provider-ID eingeben. Um die Log´s klein zu halten können nun auch
+                 die Provider-ID´s eingegeben werden. Ist dieses Feld nicht leer, so werden auch nur noch die SA bei 
+	             passendem Provider verglichen !!
+
+Irdeto :         Kompatible Idents können jetzt ermittelt werden. Dazu einfach mal die PrivID auf 00000000 setzten und die Log-Datei 
+                 auswerten ( Besser Sinaturefehler loggen auf aus )
+
+
+NT-Derivate :    Das blockieren der TT-Soft sollte weg sein. ( Lag aber am TT-Treiber, dre fragte ein Register auf den Power-On-Wert ab ).
+
+Remote-Control : Ab sofort supported !! :-) ( Auf das ihr Fett werdet )
+                 Kann auch für jede andere Windoof-Anwendung konfiruriert werden ( Menü SAA7146 -> Einstellungen -> Fernbedienung )
+
+OSD Volume Bar   Neu
+
+OSD Kanal Wahl   Neu
+                 Beim Umschalten wird der z.Zt gewählte Channel angegeben 1 Taste 1 (z.B. 1 ARD), dann 2 (12 SiFI ) etc......
+
+OSD Kanal-Info   Mit der Taste <N> ( auch zum Editieren geeignet )
+
+VideoText - Setup : Das automatische erkennden der Ländereinstellung kann nun überschrieben werden.
+
+Viel Spaß und Gruß Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 7.5
+
+Niemals freigegeben wegen sehr vielen Änderungen !!
+Diese Version wurde nach Bug-Fixing zur 7.6 
+
+/**************************************************************************************************************/
+
+MultiDec Version 7.4
+
+So, wieder mal einiges neu bzw geändert !!!
+
+- Neue Treiberumgebung, nun auch für XP 
+
+- Mit dem Umschalten auf Kanal 0 wird immer zum letzten Kanal zurückgeschaltet ( siehe DVB 2000 )
+
+- Record/Play nun auch im mpg-Format 
+
+- Loggen Irdeto/Beta und Seca weiter verbessert.
+  Neuen Dialog für ein sogenanntes Transponderloggen. ( Im Menü DVB-Daten )
+  Immer wenn ihr auf Programme dieses Transponders schaltet, wird automatisch ein Logging mit den dort 
+  eingestellten Werten gestartet. 
+  Es konnen GLEICHZEITIG mehrere EMM z.B. 1000 ( Premiere C-Cards ) 1500 (Premiere D-Cards) und 0258 (ORF/Premiere F-Cards)
+  ausgewertet werden. ( Oder mehrere Seca-Provider gleichzeitig und auch Seca /Irdeto gemischt )
+  
+  ****************************** WICHTIG WICHTIG WICHTIG ******************************
+  Das Format der Datei ird-beta.key ist geändert : Dort werden nun die Karten unterschieden.
+  Bitte löscht diese Datei wenn vorhanden !!!
+
+
+
+- (H)ard(w)are-Filter - Informationen ( Im Menü DVB-Daten ) 
+  Da ich nun an die Grenzen der DVB-Karte komme habe ich einen weiteren Dialog eingefügt. 
+  Es können nicht beliebig viele Daten gleichzeitig empfangen werden. Alle aktiven Filter werden dort angezeigt und können dort
+  auch einzeln gestoppt werden.
+
+
+**********************************************************
+**    Für weiter Test´s bitte ich um das Zusenden von   **
+**                                                      ** 
+**                   Key01 für Seca                     **
+**   Hex-Master / PlainMaster ... von Irdeto/Betacrypt  **
+**                und Viacess - Daten                   **
+**                                                      ** 
+**         Diese Daten werden nicht weitergegeben       ** 
+**                                                      ** 
+**********************************************************
+
+
+PS: Radio.mp3 und Intercast wurde wegen Einstellung der Dienste entfernt !!!!
+
+
+Viel Spaß und Gruß Espresso
+
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 7.3
+
+Es hat etwas länger gedauert, aber es ist auch vieles neu !!
+
+( Analog und Digital )
+
+DirextX : Wer den Modus DX-Locking verwenden muß kann nun auch den RAW-Overlay-Modus wieder benutzen !!
+          Der hatte nur ein schwarzez Bild produziert.
+		  Nun schreibt die Karte ( welche auch immer ) direkt in den Overlay-Speicher und MultiDec mach nur noch
+		  das Locking. ( Ging bisher nicht )
+
+(Digital)
+
+OSD-FunktionsMenü : Mit der Taste A erscheint ein OSD-Funktionsmenü ( Dank an oxident )
+
+DVR       Neue Funktionen für den (D)igitalen (V)ideo (R)ecorder !
+          Der DVR kann nun komplett OSD gesteuert werden. 
+		  Es können gezielt Uhrzeiten im Film ( z.B. +10 Minuten oder nach 45 Minuten spielzeit ..etc ) angesprungen werden.
+          Das setzten von Merkern im Film zum schnellen Auffinden ist möglich !!
+		  ( Eine Marke wird immer beim Stop gesetzt, so das mit dem Sprung auf Letzte Marke sofort weiter geglotzt werden kann)
+
+		  (MPG Aufnahme und Wiedergabe in Vorbereitung d.h. noch nicht in der 7.3 )
+
+LOGGEN
+
+Seca      Eigentlich alle Funktionen angepasst. 
+		  Es können nun  die Karten-Daten aus MultiDec heraus verwaltet werden! ( Die alte Kartendatei geht nicht mehr !! )
+          
+		  Folgende Dateien zur Verwaltung 
+
+		  Seca.KID        : Karten-InformationsDatei ( Wird über MD verwaltet )(Textdatei wer es pur mag)
+		  Seca.Key        : Txt-Datei mit den gefunden Plain-Key-Informationen
+		  Seca.prv        : Txt-Datei mit den bekannten Provider-Informationen
+
+
+Irdeto/Betacrypt 
+          Alles neu. 
+          Nun können auch solche Daten :-) gelogged und ausgewertet werden.
+
+		  Folgende Dateien zur Verwaltung 
+
+		  Ird-Beta.KID        : Karten-InformationsDatei ( Wird über MD verwaltet )(Textdatei wer es pur mag)
+		  Ird-Beta.Key        : Txt-Datei mit den gefunden Plain-Key-Informationen und Freecam
+		  Ird-Beta.prv        : Txt-Datei mit den bekannten Provider-Informationen
+
+          Die KID-Datei kann auf AutoUpdate geschaltet werden !
+
+
+** Beispiel einer Seca.key ** 
+( Die letzten 2 Bytes immer auf AAAA gesetzt, da ich keinen Key weitergeben darf/kann/möchte (
+
+;Seca-Key-File von MultiDec erstellt
+;
+;
+IDENT : 0003    Canal+ France
+SA    : 00AAAA
+              0C  0DEB7DF9F39CAAAA
+              0D  59BE1C6FCCC6AAAA
+              0E  42645B700DCDAAAA
+;
+IDENT : 0019    Canal Digitaal NL
+SA    : 00AAAA
+              0C  11C22773AD3CAAAA
+              0D  4C8A9299E5BFAAAA
+              0E  09A6EED1D109AAAA
+;
+SA    : 00AAAB
+              0C  11C22773AD3CAAAA
+              0D  4C8A9299E5BFAAAA
+              0E  09A6EED1D109AAAA
+
+** Beispiel einer Ird-Beta.key **
+
+;Irdeto/Betacrypt-Key-File von MultiDec erstellt
+;
+10  02  169B6ED7F0B8AAAA  FreeCam ( 016 002 022 155 110 215 240 184 170 170 ) ChId 7D00;
+10  02  9C82AB00FA6CAAAA  FreeCam ( 016 002 156 130 171 000 250 108 170 170 ) ChId 7D01;
+10  04  90564BC1C177AAAA  FreeCam ( 016 004 144 086 075 193 193 119 170 170 ) ChId 7D03;
+10  04  9F9D58716421AAAA  FreeCam ( 016 004 159 157 088 113 100 033 170 170 ) ChId 7D02;
+10  06  B170A2CB7F1BAAAA  FreeCam ( 016 006 177 112 162 203 127 027 170 170 ) ChId 7D21;
+10  08  79D160683696AAAA  FreeCam ( 016 008 121 209 096 104 054 150 170 170 ) ChId 7D22;7D16;7D17;4E2C;7D1D;
+10  0A  4FB5096345D6AAAA  FreeCam ( 016 010 079 181 009 099 069 214 170 170 ) ChId 7D23;61B3;
+10  0E  6CF349B45C91AAAA  FreeCam ( 016 014 108 243 073 180 092 145 170 170 ) ChId 7530;
+10  0E  765878AA6D7DAAAA  FreeCam ( 016 014 118 088 120 170 109 125 170 170 ) ChId 1431;144E;
+10  10  7DB32850A9E5AAAA  FreeCam ( 016 016 125 179 040 080 169 229 170 170 ) ChId 7D04;
+10  10  95720226E35AAAAA  FreeCam ( 016 016 149 114 002 038 227 090 170 170 ) ChId 0000;
+
+
+Und noch einen Sack von Bug und anderen Ungereimtheiten entfernt !!!
+
+
+**********************************************************
+**    Für weiter Test´s bitte ich um das zusenden von   **
+**                                                      ** 
+**                   Key01 für Seca                     **
+**   Hex-Master / PlainMaster ... von Irdeto/Betacrypt  **
+**                und Viacess - Daten                   **
+**                                                      ** 
+**         Diese Daten werden nicht weitergegeben       ** 
+**                                                      ** 
+**********************************************************
+
+Und noch etwas auch in eigener Sache :
+
+Mein Postfach wird immer mit den selben Anfragen zugemüllt!! 
+Es macht schon keinen Spaß mehr da rein zu glotzen !! 
+Sollte ich also ne Mail nicht beantworten, so ist diese zwischen den anderen Mails versteckt.
+
+Nun möchte ich 99,9 % der Fragen beantworten !!!
+
+Nein, die NOVA-Karte wird nicht unterstützt !!!!!!! 
+Vieleicht mache ich es mal, das soll aber keine Zusage sein.
+
+Nein, entschlüsseln ohne CAM geht mit keinem Knopf !!!!!!!
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+MultiDec 7.2 
+
+wurde nie freigegeben, da noch zu viele Änderungen zu machen waren !!
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 7.1b
+
+Und noch ein HotFix. Nun kann nach dem Scannen auch das Gefundene abgespeichert werden !!
+( OK - Button nach dem Scannen wird wieder freigeschaltet )
+
+Und auch wieder die aktuellen Sourcen !!! 
+
+PS Dazu : Ich würde es begrüßen, wenn alle, die MD verändern auch ihre Sourcen zur Verfügung stellen
+würden !!! 
+
+So, jetzt bin ich im Urlaub !!!!!
+
+
+Gruß Espresso
+
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 7.1
+
+Hardwareerkennung weiter geändert.
+
+Weitere Bug´s für die 2.1 Karte gefunden !!
+Achtung : Die 2.1 Karte liefert keinen "richtigen" Sync ! Um das Scannen zu beschleunigen bitte die Änderung der Symbolraten beachten !!
+
+Kabel-Import für DVB-c - Karten !
+
+Scannen von Frequenzen geändert. 
+Bitte überprüft eure Einstellungen im Menü Kanäle->Symbolraten. 
+Für Astra-Benutzer sollte da nur 27500 und 22000 drinnen sein. Alles andere bitte entfernen !!
+
+
+Analog-Interrupt-Bug fixed !!
+
+Gruß Espresso
+
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 7.0
+
+Hardwareerkennung weiter geändert.
+
+Bug´s für die 2.1 Karte gefunden !!
+Sollte ( >Nun hoffentlich endlich< ich kann es nicht testen ) auch mit den neuen Karten ( Revision 2.1 ) laufen !!!
+
+Alles Rund um den EPG ( Toni ) neu !!!!
+
+Cinedumm - EPG geht wieder !!
+
+Ein Paar OSD-Menüs geändert !
+
+Programme die temorär Offline/Online sind ( z.B. Sport 2 ) werden beim Umschalten nun
+neu gescannt und wenn Sie Online sind, werden die Transponder-Daten gespeichert.
+
+Cinedumm TimeShift ( Mit der OSD-Taste W ) wird nun unterstützt !!!
+Einfach im Menü die gewünschte Startzeit auswählen !!!
+
+Extra-Kanäle ( F1 - Perspektiven und SuperDumm ) ( Mit der OSD-Taste Q ) wird nun unterstützt !!!
+Einfach im Menü den gewünschten Kanal auswählen !!!
+
+Bei beiden Funktionen kann das erste Umschalten etwas länger dauern, da erst die TP-Daten ausgelesen 
+werden müssen. Diese Programme werden dann zur schnelleren Verwendung in der Kanalliste 
+abgelegt. 
+
+Diese zwei neuen Service-Arten können in den diversen Ansichten der Kanalliste gefiltet werden 
+( In der Kanalliste auf den Button konfigurieren )
+Temporäre Kanäle   -> Perspektiven etc..
+Time-Shift-Clients -> Cinedumm Time-Shifted Service 
+
+
+
+Optimale Einrichtung der Cineduum´s:
+( Es geht aber auch direkt z.B. über die Cinedumm 1/3 )
+
+Suchen folgender Programmme
+Programm-Typ : NVOD Reference Service
+
+CINEDOM DELUXE   12070.500  H  27500 3/4    SID 7
+CINEDOM 1        12070.500  H  27500 3/4    SID 1  
+CINEDOM 2        12070.500  H  27500 3/4    SID 2 
+CINEDOM 3        11758.500  H  27500 3/4    SID 3 
+CINEDOM 4        11758.500  H  27500 3/4    SID 4 
+CINEDOM 5        11758.500  H  27500 3/4    SID 5 
+
+
+Das Umschalten, sowie bedienen der gesamten CD´s kann über diese 6 Programme erfolgen.
+( Wie in der D-Box :-) 
+
+
+Perspektiven bzw. Extra-Kanäle werden dynamisch über den EPG angeboten.
+( Wie in der D-Box :-) 
+
+Gruß Espresso
+
+
+PS : Die Sourcen folgen später, da ich wg. der neuen Hardware noch nicht aufgeräumt habe !!
+Sourcen zu mlog oder ähnlichen Programmen (Auch Dokus ) ( und/auch Viacsess ) gesucht !!
+Bitte Mail an echter_espresso@hotmail.com
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 6.9b
+
+BugFix 6.9 zur H-V umschaltung
+
+/**************************************************************************************************************/
+
+MultiDec Version 6.9
+
+Neueste Firmware !!! ( Leider kann diese nicht mehr im Speicher gelassen werden )
+Hardwareerkennung neu 
+
+Sollte ( ich kann es nicht testen ) auch mit den neuen Karten ( Revision 2.1 ) laufen !!!
+Schnellerer Boot 
+
+CI auf neue Firmware angepasst 
+
+
+und viele Bugs !!!!
+
+Gruß
+
+Espresso
+
+PS : Die Sourcen folgen später, da ich wg. der neuen Hardware noch nicht aufgeräumt habe !!
+Sourcen zu mlog oder ähnlichen Programmen (Auch Dokus ) ( und/auch Viacsess ) gesucht !!
+Bitte Mail an echter_espresso@hotmail.com
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 6.8
+
+Never Released !!
+
+Support der Karten Version 2
+
+Gruß
+
+Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 6.7
+
+CI-Handling neu !! Sollte nun wieder alle CAM´s erkennen.
+
+MP3 - Live - Mode eingebaut 
+
+Diverse Bug´s bereinigt !!
+
+
+Gruß
+
+Espresso
+
+/**************************************************************************************************************/
+
+
+
+HotFix MultiDec Version 6.6B
+
+Jetzt werden alle Seca-Records gelogged !!! In der 6.6 nur die ersten 2 eines Blockes ( 8-10 Records )
+Das starten der Berechnung geht jetzt auch 
+
+Sorry und Gruß 
+
+
+Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 6.6   
+
+Änderungen im Treiberumfeld wg. Systemstabilität. Ich hoffe, es wird jetzt
+erfolgreich das "schreiben" der RISC - CPU der DVB-Karte durch den Hauptspeicher verhindert !!
+Dies konnte bei Interrupt-Sharing passieren !!
+
+Diverse Bugs bereinigt !!
+
+Neu !
+Nun kann zu beliebigen Transpondern der VideoText frei gewählt werden 
+Menü DVB-Daten Teletext-Pid wechseln oder im OSD mit <E>
+
+( Ich glaube, das hatte ich beim letzten Update vergessen zu erwähnen )
+
+
+
+Seca-Mediaguard loggen
+
+Menü DVB-Daten -> Loggen -> Seca
+
+SA-Finder 
+=========
+Listet alle Shared-Addressen des Providers auf !!
+Eine PPUA ( weil ihr immer danach fragt ) ist die Shared-Addresse, wobei die
+letzten beiden Stellen auf 00 zu setzten sind.
+Beispiel PPUA : 00 02 38 25 
+           SA : 00 02 38 00
+
+Jeder SA sind also genau 256 PPUA´s zugeordnet. Ein Key-Update erfolgt auf eine 
+SA über die Private EMM !!!
+
+Kommando-Decoder
+================
+
+Der kann das relevant CMD_40 ( Key-Update ) auflösen !!!!!!!
+Dazu gebt Ihr entweder eine Shared-Addresse ( Siehe SA-Finder ) ein und den dazu gehörigen
+MK oder ihr aktiviert die Funktion alle bekannten !!
+
+Bei alle bekannten werden alle Key´s des Providers aus der Ascii-Datei
+Seca.MK verwendet. Ihr müßst dazu z.B. mit dem Notepad den Ident, eure SA ( PPUA mit 00 am Ende ) 
+und den 01Key eintagen !!! 
+Achtet auf das im Header dieser Datei beschriebene Format !!!!!!
+
+Kommt ein Update für eure SA wird das gesammte Update-Kommando im Klartext ausgegeben und in 
+der Datei Seca.log protokolliert !!
+
+Genau zu diesem Zeitpunkt sollte auch eure Auto-Update-Karte aufgehen !
+
+
+Im Hintergrund Loggen
+=====================
+
+Eine Mischung aus SA-Finder und Kommando-Decoder ohne GUI. Kann im Hintergrund laufen und
+erzeugt eine Protokoll-Datei Seca.log. 
+
+Diese kann mit der Funktion Log-Datei anzeigen oder mit jedem Editor eingesehen werden.
+
+
+Ihr schimpft z.Zt. über nicht gehende Auto-Updates bei Provider 0019 ! Sie gehen wohl,
+aber ihr werdet sehen, das der Zyklus für ein Update auf mehrere Stunden angewachsen ist !
+
+KEY01 Finder
+============
+
+Kein Kommentar (bitte die Hinweise beachten) ;-) und auch keine Fragen !!!
+
+
+
+
+Da das testen dieser Funktionen sehr aufwendig ist ( ich muß immer auf einen gültigen Key warten )
+würde ich mich über Mail´s mit weitern SA und Key01 freuen. Dies könnte die Testzeiträume 
+erheblich verkürzen !!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+
+
+MultiDec Version 6.5   
+
+Ich bin nun selber auf neue Hard und Software ( Windows 2000 und SR1 sowie Win98 SE ) 
+umgestiegen. Dadurch hatte ich nun viele Problemzonen entdeckt, die mir bisher verborgen 
+waren. ( Und größtenteils bereinigt sind )
+Ich will nicht hoffen, das ich durch meine Umstellung neue Bug´s eingebaut habe.
+
+
+Diverse Bugs bereinigt !!
+
+
+Nun wird auch das sogenannte Tone-Burst oder auch Mini-DiSEq unterstützt ( Siehe LNB-Konfiguration )
+
+Funktionen der Programmliste Neu :
+KanalListe -> dann Knopf konfigurieren 
+Es können nun Filter ( RADIO TV etc..) gesetzt werden !! 
+Löschen aus der ProgrammListe mit Taste D
+Sortieren einfach neuen ProgrammPlatz eingeben 
+
+Unter-Titel für Hörgeschädigte bereinigt/Angepasst 
+
+
+
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+
+
+MultiDec Version 6.4   
+
+Diverse Bugs bereinigt !!
+
+
+Und noch kurz vor Weihnachten :
+
+R@dio.mp3 ANALOG und DIGITAL getestet und einsetztbar !!
+
+Bei Digital über den Soft-Dekoder zu erreichen !!!
+
+
+Frohes Fest 
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 6.3   
+
+Diverse Bugs bereinigt !!
+
+1. Treiberänderungen 
+2. Eit kann nun die maximalen 65635 Informationen Speichern
+3. Loggen im Kernel-Irq ( es sollten keine Daten mehr verschwinden !! )
+4. Speicherverwaltung geändert !!
+5. IRQ-Routinen ( Event ) geändert ( Sollte etwas schneller sein /Analog u. Digital)
+
+
+
+Erweiterung der VideoText - Funktionen
+
+Es existieren nun 2 Möglichkeiten an den Videotext zu kommen.
+Schaut mal ins Menü DVB-Daten
+
+1. Über den VT-Dekoder der DVB-Karte und 2. über den Softdekoder, der
+den VT-Stream nimmt.
+
+Damit ist auch R@dio.mp3 möglich, aber ob es schon geht kann ich nicht sagen, da ich
+nur Astra empfangen kann !!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 6.2   
+
+Diverse Bugs bereinigt !!
+
+0. Weiter Änderungen in der Treiberumgebung 
+1. Treiberinstallation Windows 2000
+2. VT-Seitenvorschub
+3. Immer noch stoppen der Timeraufnahme
+4. ggf. Hängen beim Umschalten 
+
+Neu
+
+Der Dialog zur Zeitgesteuerten Aufnahme ( DVB ) ist um eine Shutdown - Möglichkeit 
+erweitert. (Und ein bischen bei der Eingabe geändert )
+
+Wird eine Aufnahme über OSD-Record oder Menü-Record gestartet,
+so wird diese Aufnahme ab jetzt im Dialog zur Zeitgesteuerten Aufnahme
+eingetragen. Dort kann einfach noch eine ENDE-Zeit eingegeben werden.
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 6.1   
+
+TREIBER und TREIBERUMGEBUNG
+===========================
+
+Treiberumgebung für Windows 2000 (inklusive SR1 ) und ME angepasst!
+Beim ersten Starten unter Windows 2000 wird u. Umständern ein Bootvorgang notwendig	um 
+die Treiberumgebung zu registrieren.
+
+Unter NT4 kann der Startvorgang im Menü BT8x8 ( oder SAA7146 ) ->
+MultiDec Boot-Optionen beschleunigt werden.
+Unter Windows 2000 sollte das Häcken bei <Treiber installieren und installiert lassen>
+nicht entfernt werden. 
+
+Konflikte mit WinDVBLive sollten nun nicht mehr existieren ( auch wenn ich keine 
+Version habe um das zu testen ), aber 30 DM zahle ich nicht !!!!!!!!
+
+
+Da immer wieder Meldungen über defekte Aufnahmen vorkommen :
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!! Ihr mußt die Treibererweiterung einschalten !!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+DIGITAL
+=======
+
+Loggen - Bug entfernt !!
+
+Crypt-Norm der Sender wird ausgegeben. ( ggf. neu Scannen )
+( Sowie PID EMM und ECM )  ( Wozu das wohl gut ist (mit loggen ?? ):-) 
+
+Crypt-Stream des Transponders wird ausgegeben ( Menü-9-Menu-5 :-)
+
+Bei der Aufnahme kann nun eine beliebige maximaler Dateigröße eingegeben 
+werden.
+
+Zeitgesteuerte Aufnahme stoppt nun auch 
+
+Digitale VideoText mit allen Seiten im Cache
+
+
+
+
+VIDEOTEXT
+=========
+
+Hinweis :
+Ihr solltet im Menü Ausgabe Mit Karten-Interrupt syncronisieren ( 25 FPS) einschalten.
+Grund :
+Mehr als 25 FPS bringt nichts ausser Rechenlast. Und diese wird beim Analogen VT zum 
+Capturen der VT-Seiten benötigt. ( Auch z.B. für Radio.mp3 )
+Gehen da einige Fields verlohren, kommt es zu Störungen im VT.
+
+
+Bedienung
+=========
+
+Es können bis zu 8 VT-Dialoge gleichzeitig gestartet werden.
+
+Das Auswählen der Seiten kann 1. Durch die Zahleneingabe und 2. durck klicken mit der Maus
+auf eine Seitenzahl erfolgen.
+     
+
+Umfangreiche Export-Funktionen ( automatisch oder manuell )
+( txt oder bmp oder html (mit diversen feinheiten auch für direktes publishing ) 
+Achtung : 
+Neu FON - Datei für VT-unterstützung 
+Bei Nutzung ohne MultiDec sollte der Font MultiDec.fon 
+auf eurem System installiert sein .
+Zur Laufzeit wird diese FON-Datei automatisch / dynamisch geladen und entladen. Soll dieser fon auch sonst 
+zur Verfügung stehen, muß die über die Systemsteuerung installiert werden.
+
+Die Anzeige des VT als txt oder htm-Datei ist nur richtig, wenn dieser FON geladen ist
+
+ 
+Schaut euch mal den VT-Setup an und spielt da mal rum !!!
+
+
+
+Viel Spaß und Gruß
+
+Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 6.0   
+
+Bug(s) in der Treiberumgebung beseitigt
+
+
+DVB-C SUPPORT 
+=============
+
+MultiDec kann nun auch bei DVB-c Karten verwendet werden. 
+Wichtig : 1. Alle Konfigurationsdateien ( MultiDec.ini, *.set ) löschen.
+             Dann wird die Hardware erkannt und automatisch alle Einstellungen
+			 gemacht !!!
+
+		  2. Es gibt dafür so analoge Erweiterungen. Diese sollten entfernt werden,
+		     wenn ihr Ton haben wollt ( wird noch dran gearbeitet ) 
+			 Andere Variante : Siemens-Soft starten ( Mute-Schalte wegnehmen ) und beenden.
+			 ( Dann geht es auch mit dem Nachbarn )
+
+
+
+DIGITAL
+=======
+
+Im Menü DVB-Daten kann nun nach diversen Kriterien mal gescanned/gelogged werden
+
+OSD
+===
+
+Die Anzeigen sind nun Bitmap-Fähig ( Schaltet mal auf Mute oder schraubt mal die Antenne ab )
+
+
+
+In dieser Version hat sich für euch nicht viel verändert. Es wurden aber viele 
+Routinen erneuert/geändert/gefixed !!
+
+
+
+Viel Spaß 
+
+Gruß Espresso
+
+
+
+/**************************************************************************************************************/
+MultiDec Version 5.9   
+
+Bug(s) in der Treiberumgebung beseitigt
+
+
+ANALOG
+======
+
+R@dio.mp3 - receiver integriert !!!!
+
+Läuft eine MP3-Übertragung, sollte das System möglichst wenig "angefasst" werden. Abhängig von
+der Aktion ist MultiDec gezwungen, den Capture-Driver kurz zu stoppen und neu zu starten. Dabei gehen 
+Blöcke verloren. Der "Sichterste Modus" ist der Ausgabe-Modus DIB, aber z.B. das Sizen des TV-Fensters würde
+auch dort Blöcke wegschmeissen.
+
+Die MP3 - Datei würde fehler enthalten
+
+Einstellungen zu R@adio.mp3 Menü VideoDaten->R@dio.mp3 Setup
+
+Pfad : Dort werden die MP3 - Dateien abgelegt.
+
+Werbebanner mit ablegen oder nur Cover : Mit einer mp3 - Übertragung kommt auch immer werbung mit. Diese wird default-mäßig
+rausgefiltert und nur das Cover zum titel amgelegt.
+
+MP3-LOG.TXT : Wird ggf. zu analysezwecken benötigt. Sollte aus sein !!
+
+
+DIGITAL
+=======
+
+CI-Support erweitert 
+DiseqC neu 
+DVB_C - Teile neu ( bitte mal testen )
+
+Menü SAA7146 -> Capture ist neu !!
+   
+EventInformationen : Auswertung / Anzeige des EPG ( Sollte an sein )
+Digitaler Videotext: Einlesen der VT-Daten
+Digitale VideoText-Daten werden nun eigelesen ( aber nocht nicht angezeigt :-( )
+Achtung : Da habe ich unter umständen ein Problem. Ist diese Option eingeschaltet kann es beim umschalten zu einem "grünen Bild" kommen.
+Ob das ein Fehler in meiner Hardware, in der Firmware oder in MultiDec ist, kann ich noch nicht sagen. Ich habe etwas derartiges auch, wenn ich die org.
+Software verwende. Bitte mal testen.
+
+
+Viel Spaß 
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+MultiDec Version 5.7
+
+
+/**************************************************************************************************************/
+MultiDec Version 5.8   ( 5.7b )
+
+Bug(s) in der Treiberumgebung beseitigt
+
+ANALOG
+======
+
+Automatischer VT-Export aller empfangenen Seiten
+( vieleicht hat einer Lust die Funktion html_output in VT.c <erzeugen der html-Dokumente>
+zu verbessern >
+
+
+ 
+DIGITAL
+=======
+
+CI-Support erweitert um ggf. CAM-Messages ( Karte wechseln etc. etc. )
+
+Viel Spaß 
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+MultiDec Version 5.7
+
+
+Neue Treiberumgebung 
+   ( War wegen DVB nötig. )
+   - Im Menü BT8x8 bzw SAA7146 kann jetzt beim nächsten Start ein echter Kernel-Treiber mit geladen werden.
+   - Bei BT sollte das Ding nun ( mit dieser Treibererweiterung ) auch IRQ-Sharing können.
+   - DVB mit Treibererweiterung : Keine Störung bei Rec/Play und "echte" IRQ Synchronisation
+   
+Wegen der neuen Treiber sind viele Programmteile geändert. 
+
+
+
+ANALOG
+======
+
+WinBis weiter ( Danke an St.Elms ) 
+VideoText-Export sollte nun gehen 
+
+DIGITAL
+=======
+
+DiseqC - Steuerung Neu  ( Bitte mal berichten ob es geht, da ich so etwas nicht habe/brauche)
+
+DVB-RAW-Overlay gefixed und nun getestet :-)
+
+CI-Support ( auch für CI-Menü eines 4.6 SE )  
+   MENU ( CI ) oder im OSD mit <R>
+
+
+
+Viel Spaß 
+
+Gruß Espresso
+
+PS : 
+Etwas in eigener Sache. 
+
+Im Dialog INFO habe ich zwei Werbebanner aufgenommen. Bis jetzt habe ich immer die
+Hardware selber bezahlt und mit diesen beiden "Lieferranten" habe ich beste Erfahrungen gemacht.
+
+Da ich bereits sehr viel Zeit/Geld investiert habe, soll das ein Versuch sein ,ggf. Leihweise an 
+Hardware zu kommen. 
+
+Für euch ist und wird MultiDec immer kostenlos bleiben und wer die Werbung nicht sehen will, 
+klickt einfach nicht drauf. 
+
+/**************************************************************************************************************/
+MultiDec Version 5.6
+
+
+IRQ-Routinen geändert 
+Es sollten die Schmierzeichen beim EIT weg sein.
+
+Benötigt im DVB-Betrieb nun weniger speicher.
+
+Datumsauflösung DVB
+
+
+
+RAW-OVERLAY im DVB-Modus nun verfügbar !!!! 
+
+Damit schreibt der SAA direkt in den Overlay Bildschirmspeicher.
+
+
+Achtung!!!!
+Der RAW-Modus BT-Chip oder DVB-Overlay ( Nicht Raw ) benötigt den Graka-Triber im FOURCC = YUY2
+Der RAW-DVB-Moder benötigt einen FOURCC = UYVY
+
+Es kann also sein, das ihr zwar Overlay machen könnt, aber der RAW-DVB-Modus nicht geht !!!
+
+ 
+VideoRecorder-Funktionen DVB
+
+Wichtig ::  
+==========
+
+Der Recorder ist z.Zt. ( auf meinem LOW-End-PC ) sehr empfindlich !!
+Die OSD-Funktionen behindern teilweise die Aufnahme. Es kann zu Störungen kommen.
+Die Wiedergabe geht am besten im RAW-Modus.
+Am besten, ihr sucht die bei euch zuerst die passenden Einstellungen, da es sich dabei um Timingprobleme 
+beim Zugriff auf die DVB-Karte handelt. 
+
+
+Menü Recorder
+
+1. Einstellungen für Recorder
+
+Es können da bis zu 8 Platten ( Verzeichnisse ) angegeben werden, in denen Die Daten abgelegt werden sollen.
+Ist die erste Platte voll, wird automatisch auf die nächste weitergeschaltet.
+
+
+Recorder Format :
+
+PR_NONE  : ist NIX 
+AudioPES : Nur AudioDaten im PES-Format
+AudioMP2 : Nur AudioDaten im im MP2 - Format
+AudioPCM : Nur AudioDaten im PCM-Format ( Kann nicht wiedergegeben werden )
+VideoPES : Nur VideoDaten im PES-Format
+AV_PES   : Audio und VideoDaten im PES-Format
+
+2. Zeitgesteuerte Aufnahme 
+
+Entspricht der Timerfunktion eines Videorecorders 
+( Achtung : Nur minimale Prüfung der eingegeben Daten ) 
+Eine Zeile kann gelöscht werden, in ein Eintrag in dieser Zeile leer ist 
+
+Record   (Alt+A) Starten der Aufnahme
+Stop     (Alt+Q) Stoppen der Aufnahme/Wiedergabe
+Play     (Alt+Y) Starten der Wiedergabe
+
+Pause    (Alt+P)   Unterbricht die Aufnahme/Wiedergabe
+Schnell  (Alt+F)   Schnell vor bei der Wiedergabe
+Zeitlupe (Alt+G)   Zeitlupe bei der Wiedergabe
+
+
+Diese Funktionen sind auch im OSD-Menü Taste T verfügbar. ( Play noch nicht implementiert )
+Aber Achtung : Siehe oben bei WICHTIG 
+
+
+
+Probiert es mal aus !!
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 5.5
+
+Sehr vieles NEU !!!!! 
+
+
+
+NEU : Kanalliste überarbeitet
+
+ANALOG 
+Bug ( erst Ton dann Nix mehr ) beseitigt;
+VT geändert;
+
+Dank an chilli 
+
+
+Habe mal mit einer html-Speicherung angefangen, ist aber noch nicht fertig. Mir fehlt
+dazu einfach die Zeit.
+
+
+DIGITAL
+
+
+EPG
+
+OSD-Funktioen
+
+Funktionen im Menü OSD oder den entsprechenden KEY ( Direkt für die Fernbediener eingebaut )
+
+
+
+EPG-Liste Current Next  <Taste Z>
+Programmheft für Aktuelle und nächste Sendungen über diverse Sender
+
+Angezeigt werden der 
+Sendername  StartZeit  Titel 
+
+OSD-Steuerung :
+Taste                              Funktion
+0                                  OSD beenden
+1 ( Ende auf dem Nummernblock )    Letzte Seite der Liste
+7 ( Pos 1 auf dem Nummernblock )   Erste Seite der Liste
+8                                  1 Zeile Nach oben
+2                                  1 Zeile Nach unten
+9                                  1 Seite rauf 
+3                                  1 Seite runter
+  
+
+EPG-Liste Aktuelles Programm  <Taste P>
+Programmheft für den aktuellen Sender
+
+Angezeigt werden der 
+Datum  StartZeit  Titel 
+
+OSD-Steuerung :
+Taste                              Funktion
+0                                  OSD beenden
+1 ( Ende auf dem Nummernblock )    Letzte Seite der Liste
+7 ( Pos 1 auf dem Nummernblock )   Erste Seite der Liste
+8                                  1 Zeile Nach oben
+2                                  1 Zeile Nach unten
+9                                  1 Seite rauf 
+3                                  1 Seite runter
+
+EPG-Detail Aktuelles Programm  <Taste O>
+Programmheft für den aktuellen Sender
+
+Angezeigt werden der 
+Datum  StartZeit  Titel und der gesamte Beschreibungstext
+
+OSD-Steuerung :
+Taste                              Funktion
+0                                  OSD beenden
+1 ( Ende auf dem Nummernblock )    Letzte Seite der Beschreibung
+7 ( Pos 1 auf dem Nummernblock )   Erste Seite der Beschreibung
+8                                  1 Zeile Nach oben in der Beschreibung
+2                                  1 Zeile Nach unten in der Beschreibung
+9                                  1 Seite rauf in der Beschreibung
+3                                  1 Seite runter in der Beschreibung
+4                                  Beschreibung der vorherigen Sendung
+6                                  Beschreibung der nächsten Sendung
+
+
+
+
+
+Audio-Wahl für das aktuelle Programm  <Taste I>
+In diesem Menü kann der AudioTräger ausgewählt werden.
+OSD-Steuerung :
+Taste                              Funktion
+0                                  OSD beenden
+8                                  1 Zeile Nach oben ( Wird direkt eingestellt )
+2                                  1 Zeile Nach unten ( Wird direkt eingestellt )
+5                                  Diese PID wird als default genommen und abgespeichert
+
+
+OSD-Programm-Liste <Taste L>
+Kann zum Umschalten verwendet werden 
+
+OSD-Steuerung :
+Taste                              Funktion
+0                                  OSD beenden
+1 ( Ende auf dem Nummernblock )    Letzte Seite der Liste
+7 ( Pos 1 auf dem Nummernblock )   Erste Seite der Liste
+8                                  1 Zeile Nach oben
+2                                  1 Zeile Nach unten
+9                                  1 Seite rauf 
+3                                  1 Seite runter
+5                                  Umschalten
+
+
+Programm-Info Aktuelles Programm  <Taste SPACE> oder nach dem umschalten
+Programminfo im DVB-Style zum Sender 
+Verschwindet von Selber
+
+
+Aktuelle DVB-Uhrzeit <Taste U>
+Verschwindet von Selber
+
+Alle diese Funktioen sind im Menü DVB-Daten im Windowsstyle verfügbar und mit mehr
+Funktionalitäten.
+Geht da mal in den EPG und dann in die Konfiguration
+
+
+Für die Uhrzeit müßt ihr noch die Zeitzone einstellen 
+Menü DVB-Daten -> DVB-Datum/Zeit und dort die 2 eintragen 
+
+Wem die Farben der OSD-Menüs nicht gefallen, kann diese im Menü OSD->Einstellungen
+ändern.
+
+
+
+Probiert es mal aus !!!
+
+ 
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 5.4
+
+Immer noch HotFix : Analoger Scan sollte nun gehen ( Und neues OutFit )
+
+
+NEU : Kanalliste neu 
+
+- Schöneres outfit ( Meine Meinung )
+- Spalten verschiebbar 
+- Spalten konfigurierbar 
+- zum SendePlatzwechsel nicht mehr nur auf und ab sondern den Sender anklicken und einfach Zahl 
+  neue Programmnummer eingeben.
+- löschen von Kanälen wie bisher oder den Sender anklicken und einfach d oder D eingeben 
+
+NEU : WINBIS 
+
+Wird ein und ausgeschaltet wie z.B Videotext. Zur Zeit werden die winbis-daten in eine
+html-datei gedumpt. Wer sich an der Analyse beteidigen will ist herzlich willkommen !!!
+
+
+Gruß Espresso
+/**************************************************************************************************************/
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 5.3B
+
+HotFix : Analoger Scan sollte nun gehen ( Und neues OutFit )
+
+Gruß Espresso
+/**************************************************************************************************************/
+
+MultiDec Version 5.3
+
+NEU:
+Menü Kanäle im Digitalbereich
+Scannen von Transpondern und Frequenzen
+
+Programliste aufgebohrt ( Alte Programmliste ist inkompatibel, daher 
+muß auch analog neu gescannt werden )
+
+
+Erste Aufbereitungen der Daten ( NIT / SDT / PAT )
+
+Spielt einfach mal mit rum !!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 5.2
+
+NEU:
+Analoger VideoDat für den WDR-Computerclub
+
+Menü->VideoDaten->VideoDat Setup
+
+Folgende Einstellungen sind möglich 
+
+1. BasisPfad 
+
+In diesem Pfad wird entweder die Raw-Datei abgelegt, oder ab da die Nutzdaten von VideoDat ebgelegt.
+
+2. Nur als RAW-Datei ablegen.
+Die gesamte VideoDat-Übertragung wird in eine Datei abgelgt. Diese kann später über den Knopf "Jetzt umwandeln"
+ausgepackt werden. 
+Ist diese CheckBox nicht gesetzt, werden zur Laufzeit die Daten in die Nutzdaten übersetzt.
+
+3. RAW-Dateiname
+Dateiname für die Raw-Datei
+
+Ist die Funktion VideoDat im Videodaten-Menü eingeschaltet,
+kann der aktuelle übertragungsstatus abgerufen werden.
+
+
+ACHTUNG:
+Läuft eine Videodat-Übertragung, sollte das System möglichst wenig "angefasst" werden. Abhängig von
+der Aktion ist MultiDec gezwungen, den Capture-Driver kurz zu stoppen und neu zu starten. Dabei gehen 
+Blöcke verloren. Der "Sichterste Modus" ist der Ausgabe-Modus DIB, aber z.B. das Sizen des TV-Fensters würde
+auch dort Blöcke wegschmeissen.
+
+
+Ausgabesynchronisaton ( Analog und Digital ) 
+Menü -> Ausgabe -> Mit Karten-Interrupt syncronisieren ( 25 FPS)
+
+"Bremst" die Ausgabe auf 25 FPS beim Free-TV. Die Systemlast wird deutlich weniger, und mehr
+FPS ist nur die Ausgabe des gleichen Bildes !!
+Damit kann man die Synchronisationsproblem mit manchen Graka´s umgehen !!!!
+
+
+
+Änderungen:
+
+Viele viele viele Bugs beseitigt (DVB und Analog)!!!!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+/**************************************************************************************************************/
+
+MultiDec Version 5.1
+
+Einige Default´s verändert ( verbessert )
+
+Digitale Ladezeiten verkürzt. 
+
+Bitte mal testen 
+
+Im Menü SAA7146 -> Einstellungen -> Firmware prüfen und im Speicher lassen 
+kann nun ein und ausgeschaltet werden, was mit der DVB - Karte beim Starten/Beenden geschehen soll
+
+Nicht gesetzt: 
+Beim Starten Karte immer laden und beim Beenden immer Resetten 
+
+gesetzt:
+Beim Starten Karte prüfen ob geladen und wenn ja nix tun ( meine leichteste Aufgabe )
+Beim Beenden Karte "ausschalten", so daß nichts durch den Speicher fegen kann, aber funktionsfähig lassen
+
+
+Daduch werden die Ladezeiten ( bei bereits gebooteter DVB-Karte ) erheblich verkürzt.
+
+
+
+Umschalt-Bug Digital->Analog beseitigt
+
+Speicheraufteilung geändert wg. der Meldung "DVB-Display Memory nicht verfügbar" 
+(Sollte nun besser sein ( und ggf richtiger ) DVB-Display Memory (Physikalisch Linear) nicht verfügbar ")
+Wenn ihr diese Meldung erhaltet, solltet ihr es nach einen Reboot erneut probieren !!
+
+SizingBug in DVB beseitigt.
+
+Und viele viele andere (DVB)!!!!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 5.0
+
+( Alle anderen 4.5 bis 4.9 nie freigegeben )
+
+Kleinere AnalogBugs gefixed
+Neue Hardware in MultiDec integriert !!!
+Nun können mit MultiDec auch Technotrend bzw. Hauppauge DVB-S Karten betrieben werden.
+
+Damit wird eine DVB-Karte in Win95/98 NT 4 und Windoof 2000 verfügbar, da der Treiber vollständig
+in MultiDec ( wie beim BT ) integriert ist. Der Nachteil dieser Vorgehensweise ist : Ich muß
+jede Funktion der Technotrend DLL´s neu machen. 
+
+Die Unterstützung der digitalen Karten ist erst am Anfang. Zur Zeit erst einmal nur Bild und Ton.
+An dieser Ecke ist noch sehr viel zu tun, aber ich möchte erst einmal das Know-How über diese
+Karten verbreiten.
+
+Folgende Punkte fehlen noch :
+
+Scannen des Sat oder Transponders. Derzeit kann nur eine DVB-Datei importiert werden. Ich habe mal 
+ein Muster beigelegt. Wer sich mit digitalem TV beschäftigt, weiß woher diese Datei kommt .
+
+Es fehlt noch alles in Richtung EPG. Wird folgen :-)
+
+Keinerlei Decording. ( Kann erst viel später in Angriff genommen werden )
+
+Ich hoffe mit diesem Ansatz die Neugier von Techotrend zu erwecken um an dringend benötigte Paperware zu kommen.
+( Die BT-Karten sind ja auch weggegangen wie warme Semmeln :-)  
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 4.4
+
+Integrierter Sound-Decoder
+
+und viele Bug´s gefixed 
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 4.3
+
+Multiprozessorsysteme werden nun unterstützt. ( Sie MultiDec.ini )
+Videocrypt-Engine überarbeitet !!!
+Beim Zappen über Composite wird nun ggf, der BT-Chip automatisch geresettet.
+Audioschrittweite vergrößert ( Hotkey vV )
+Bildschirmschoner und/oder PowersaveMode deaktiviert
+
+Bei VT wird nun erst einmal auf DIB geschaltet
+
+Neue Hotkeys 
+
+t                      Starten Videotext Klein
+T                      Starten Videotext Groß
+Ctrl+T                 Ende VideoText
+
+Cursor Links oder <    vorherige VT-Seite
+Cursor Recht oder >    nächste VT-Seite
+Cursor Hoch oder q     vorherige VT-Roll-Seite
+Cursor Runter oder a   nächste VT-Roll-Seite
+
+Ctrl+W                 VC-Chromakeying an/aus
+
+Ctrl+E  Programmende 
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 4.2
+
+
+Videocrypt-Engine ist neu !!!
+Bitte nicht mit den Keys rumspielen, das ist erst einmal nur für mich.
+( Ich denke die SimulCrypt-Sender ( VC/I und VC/II ) sind da noch anfällig für :-) , bin 
+aber noch am testen ( Es soll ja auch nich eine 4.3 kommen ))
+
+Verbesserter Secam-Support eingebaut ! 
+Der Rot-Blau Filter kann im Menü Decording->Nagravision->Secam-Threshold eingestellt werden
+oder über Hotkeys.
+
+Es kann nun zur Laufzeit zwischen den diversen KEY´s umgeschaltet werden.
+Im Menü Decording->Nagravision->KeySet auswählen können entsprechende einstellungen gemacht werden
+Dadurch kann zur Laufzeit zwischen Pr...... und C+ hin und her geschaltet werden, ohne das eine 
+Datei neu erzeugt werden muß
+
+
+Default-Einstellung ist KeySet 1 : 	Wie bisher
+                        KeySet 2 :      C+
+
+Neue HotKeys
+
+iI      Secam-Threshold V (Rot)  seuil de détection de ligne rouge
+uU      Secam-Threshold U (Blau) seuil de détection de ligne bleue
+Ctrl+B  Secam-Blaufilter an/aus  Filtre Secam Lignes violettes Activé/Désactivé
+
+H     Show/Hide Cursor
+
+ALT+1   KeySet 1 anwählen
+ALT+2   KeySet 2 anwählen
+ALT+3   KeySet 3 anwählen
+ALT+4   KeySet 4 anwählen
+
+
+Gruß Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 4.1
+
+Viele ( Sehr viele ) Bugs gefixed 
+
+*** Änderungen ***
+
+PLL initialisieren
+
+Die Einstellung zur Initialisierung wurde aus den BT8x8->IFORM - Parameter entfernt.
+Damit entfällt das OK - Feature :-) 
+Steht jetzt in BT8x8->PLL - Einstellungen. ( Siehe Neuerungen )
+
+NAGRA-Decoding-Setup
+
+Die Sache mit den UnLOCKFPS etc. entfällt. ( Siehe Dialog Nagravision-Setup )
+Einige Ungereimtheiten in diesen Funktionen waren für die Plattenzugriffe mit 
+den damit verbundenen Dekodieraussetztern verantwortlich.
+Eine neue Funktion eingesetzte, die nicht konfiguriert werden muß. 
+
+AUTOLOCK,AUTOMOVIEBOOST
+
+Geändert/verbessert
+
+
+InterCast 
+
+Datendurchsatz verbessert
+Realloc Fehler sollte weg sein ( Und der damit verbundene Blue-Screen )
+Packet-Längen-Fehler weitestgehend beseitigt. 
+
+VideoText 
+
+Einige interne Fixes 
+
+
+** NEUERUNGEN **
+
+Menü BT8x8 an -> PLL-Einstellungen
+
+Für Hauppage-Karten oder diverse Andere, eigentlich alle TV-Karten vom Typ BT878/BT879 
+muss in der Regel PLL ( 28 MHz crystal ) angeklickt sein.
+
+Folgende Einstellungen sind möglich : Für PAL mit einem 28.63636 MHz Quarz
+                                      Für NTSC mit einem 35.46895 MHz Quarz
+
+
+Menü BT8x8 an -> Einstellungen -> Video 
+
+Ein neuer Schieber drinnen für die gleichzeitige U und V Farbveränderung!
+
+
+
+Menü Ausgabe  -> ToggleTV-Settings 
+
+Es gab immer einige Beschwerden über den Rand im TV-Modus ( Ohne Menü etc... )
+Im neuen Dialog TV-Modus Einstellungen kann nun eingestellt werden, ob man Mit oder
+Ohne Rand sehen möchte.
+ACHTUNG : Ohne Rand ist kein Sizen möglich !!!!!!!
+
+
+Menü Ausgabe  -> Audio-Mixer Einstellungen
+
+Ab der Version 4.1 kann MuldiDec nun das Sound-Device steuern 
+Zur Konfiguration solltet ihr in das Menü Audio-Mixer Einstellungen gehen.
+
+Beim ersten Start wird das Device zur Volume-Steuerung und zur Mute-Control automatisch 
+gesucht. ( Ob das immer das Richtige ist ???? ) 
+
+In diesem Dialog stehen die zugewiesenen Controls und die Steuerung. Bei Problemen:
+
+Starten von MultiDec und der Lautstärkeregelung ( in der Regel: Start->Programme->Zubehör->Multimedia)
+
+Schauen ob sich beim Schalten der Mute-Einstellung oder einer Lautstärkeregelung aus MultiDec
+das richtige Control in der Lautstärkeregelung verändert.
+
+Wenn ja alles OK, wenn nein dann muß das neu Zugewiesen werden.
+Klickt dazu auf Zuweisen.
+
+In den Drop-Down-Listen Device, Ausgang und Eingang könnt ich das Mixer-Control anwähen.
+In der Liste Control findet ihr die dortigen Items. Ihr müsst nun die Controls für Volume und Mute 
+suchen. Dazu wählt im entsprechende Device der richtigen Ausgang / Eingang an und die Controls an.
+Im Control Item Feld des Fensters werden euch die Namen diese Controls angegeben. Ihr habt das richtige
+gefunden, wenn sich bei der Lautstärke-Regelung über die Lautstärkeregelung die Werte im aktuellen Zustand
+ändern. Diese könnt Ihr dann im Feld Verwenden als entsprechend zuweisen. Über die Liste der zugewiesenen 
+Controls könnt ihr auch direkt ( mit Doppelklick ) in die Controls springen.
+
+Bei Programmstart so setzten : Damit kann z.B. eine eingeschaltete Mute beim Programmstart immer ausgeschaltet 
+werden oder besondere Einstellungen ( Bass etc. ) treffen. Diese Einstellungen müssen über die Lautstärkeregelung
+getroffen werden und dann in der CheckBox Bei Programmstart so setzten so abgelegt werden.
+
+Weiters siehe neue HotKeys !
+
+Alles Klar !!!
+
+
+Menü Video-Daten Einstellungen für automatische Dekodiererkennung
+
+Damit kann das verhalten für die automatische Dekodereinschaltung gesteuert werden.
+Nagravision und/oder VideoCrypt.
+Für Kabelbenutzer ist es sinnvoll Naravision ein und VideoCrypt auszuschalten.
+Damit kann nun MTV Problemlos gesehen werden. ( MTV sendet VC-Daten ( als ob es Kodiert ist)
+um den englischen Zuschauern das sehen schwer zu machen (Beim Umschalten auf MTV mit einem VideoCryptReceiver
+wird das entschlüsselte Bild verschlüsselt )
+
+Menü Decoding -> Nagravision Setup 
+
+Eine Punkte in diesem Dialog sind wg. Programmänderungen entfallen 
+
+
+** NEUE HOTKEYS **
+( Für die Fernbediener :-)
+
+Groß und Kleinschreibung beachten
+
+
+yY    Balance nach Links
+xX    Balance nach Rechts
+
+C     Mehr Farbe
+c     Weniger Farme
+
+V  oder  <NUMBLOCK>+   Lauter 
+v  oder  <NUMBLOCK>-   Leiser
+
+B     Mehr Helligkeit
+b     Weniger Helligkeit
+
+K     Mehr Kontrast
+k     Weniger Kontrast
+
+mM    Mute an/aus
+
+
+Viel Spaß
+
+Espresso
+
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 4.0
+
+Alles in der VBI-Bearbeitung ( Vertical Blanking Interval ) ist neu !!!!
+
+VideoText :
+
+Alle Seiten im Cache.
+Rollseiten nun anwählbar ( Beispiel Seite 1/3 etc.. )
+Status vom Videotext.
+Spezieller Untertitel-Modus ( Textfenster mit den letzten Dialogen !!! )
+
+TSDP - Auswertung
+PDC  - Auswertung  Programme Delivery Control 
+VPS  - Auswertung
+
+
+Intercast : 
+
+Die Daten von ZDF und DSF ( DSF konnte ich nicht testen !! ) werden nun abgelegt, und können
+über einen Browser aufgerufen werden !!
+
+
+VC-Keyangabe
+
+
+Automatische Erkennung :
+
+Nagravision/Syster
+
+VideoCrypt I DekoderModus
+VideoCrypt I 
+VideoCrypt II 
+VideoCrypt I/II Simulcrypt
+
+ACHTUNG : Das mit VC ist noch nicht 100 Prozentig !!!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.9
+
+Einige kleine Bugfixes !! 
+
+Nein,Nein: Ihr habt nichts verpasst. Diese Habe ich nie freigegeben !!!
+
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.8
+
+
+Mal wieder eine neue Version mit relativ vielen Änderungen 
+
+(TUBE) Funktion. Mit einem Mausklick in das TV-Fenster läßt sich das Menu und die Statuszeile 
+und ausschalten.
+
+Nagra
+Die Nagra-Routienen auf asm umgestellt. (Etwas mehr Performance und kleiner Verwaltungsdateien)
+Dadurch müssen die NagraXX.idx neu berechnet werden ( läuft automatisch ) Diverse Bugs beim umschalten
+zwischen den verschieden Testzeilen beseitigt.
+
+VideoCrypt
+
+Ich Schiebe den BT jetzt in einen speziellen Mode.
+Auch diverse Bugs beseitigt und vieles Neu :
+
+Eingaben in VideoCrypt-Setup
+
+Linker Rand 
+Ist abhängig vom eingestellten Sender, aber 10 ist fast immer gut. 
+Default : 10
+
+Anzahl TestPixel für Y-Correction.
+Wieviele TestPixel für die Vor-Correlation einer Zeile gegeneinander Geshiftet werden sollen.
+Jeh mehr umso langsamer umso besser. Werte von 16-127 
+Default : 32
+
+Chroma-Keying aktivieren
+Schliesst die Farbauswertung mit ein.
+ 
+Farb-Fake aktivieren 
+Berechnet Aufgrund der angenommenen Durchschnittsfarbe einer TV-Zeile die Farbe der
+VC-Zeile. 
+
+Chroma-Correction aktivieren 
+Berechnet Aufgrund der angenommenen Durchschnittsfarbe einer TV-Zeile die Farbe der
+VC-Zeile. Diese werden dann gegeneinander verschoben bis es passt. ( Leider noch nicht so richtig )
+
+FakeU 
+Angenommener Durchschnittlicher U-Wert einer TV-Zeile
+( Default 131 ) Experimentiern Notwendig !!!!
+
+FakeV 
+Angenommener Durchschnittlicher V-Wert einer TV-Zeile
+( Default 231 ) Experimentiern Notwendig !!!!
+
+Anzahl TestPixel für Chroma-Correction.
+Bestimmt, wieviele Pixel einer Zeile für die Farbauswertungen genommen werden sollen
+Werte von 8-32 
+Default ( 12 )
+
+Tiefe der C-Correlation 
+Bestimmt, über wieviel Cutpoints das Chroma-Keying laufen soll.
+
+Bei dem Farb-Fake sollte der Wert deutlich größer sein als bei der Chroma-Correction.
+Für Farb-Fake ca. 7 Experimentiern Notwendig !!!!
+Für Chroma-Correction ca. 1-4 Experimentiern Notwendig !!!!#
+
+Ich hoffe das bald mit dem Chroma-Keying in den Griff zu bekommen, ist aber noch viel arbeit !!
+
+Gruß Espresso 
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.7
+
+Die Videocrypt-Routine für die Cross-Correlation schwer optimiert. 
+
+FineShifting versuche ich derzeit über die Farbdekodierung zu fahren, klappt aber noch nicht so richtig !!! 
+Es kommt zu Blockverschiebungen. Die Funktion funzt noch nicht so richtig. Ich habe diese Version nur freigegeben wg. diverser Bugs die noch in der 
+3.4b(d) drinnen waren. Vieleicht geben die neuen Routienen einen Anschub in der VC-Dekodierung.
+
+Diese Freigabe ist mehr für andere Progammierer, die meinen Code ja auch teilweise weiter entwickelt haben.
+
+VC-Hightlights :
+ 
+VC-Color:
+
+VC_UVColor aus Vcrypt.c
+Fill_Chrominanz_Buffer aus Vcrypt.c
+Die Farbe wird über MMX berechnet. 
+Somit sollte die Chromacorrection schneller laufen als über große Tabellen.
+(( Warum die noch nicht so richtig funzt weiß ich noch nicht ( Hinweise erbeten !!!!!! ))
+
+
+Find_Shift
+Liefert den Relativen Offset Pixelgenau ( abhängig von der TestPixeln pro Zeile ), wobei immer 3 Correlationen
+gleichzeitig berechnet werden !!!!!!!!!
+
+Gruß Espresso 
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.6
+
+Diese Version wurde nie freigegeben. Vidercrypt von fft auf eine MMX-Cross-Correlation umgestellt.
+Farben in Videochrypt geändert. Bugs in der Nagra-Decoding entfernt und ein bischen mehr speed.
+
+TV-Halbmodus neu. Dies ist die einzige Möglichkeit den 100 Hz. Effekt bei manchen TV-Karten in den 
+griff zu bekommen. 
+
+Lautstärke - Regelung auf Tastatur gelegt ( Die Tasten + und - ) 
+
+Overall-Performance noch etwas gefunden 
+
+Liste der aktuellen Tastenkombinationen 
+
+F1			:	Umschalten nächstes Programm
+F2			:	Umschalten vorheriges Programm
+F3			:	Ausgabe im DIB - Modus
+F4			:	TV-Fenster ohne Menü/mit Menü
+F5			:	Dekodierung aus
+F6			:	Nagra-Dekoder
+F7			:	Soft-VC-Decoder
+Alt+F7		:	Hard-VC-Decoder ( Channel 5 etc..)
+F8			:	Bei Nagra   : Gefunden Dekodiermerkmale beibehalten ( ME MO etc... )
+			    Bei Hard-VC	: Interrupts für Dekodierung mitzählen
+F9			:   Erweiterter Nagra-Dekoder an/aus
+F10			:   Programmende
+
+Alt+S		:	Ausgabe auf Surface
+Alt+O		:   Ausgabe auf Overlay
+S			:   Status ausgeben an/aus
+
+Alt+F2		:   Bildschirmmodus 800*600
+Alt+F3		:   Bildschirmmodus 640*480
+Alt+F4		:   Bildschirmmodus mit eigener Auflösung
+Alt+F5		:   Bildschirmmodus Fenster 768*576
+
+
++			:	Lauter
+-			:	Leiser		  
+
+Alt+A		:   Automatische Dekodiererkennung an/aus
+Alt+M		:	Automatischer Movieboost ( Nur Nagra-Dekoding ) an/aus
+Alt+L		:	Automatischer Lock an/aus 
+
+TAB			:   Halbbild-Modus/Vollbild Modus ( Normal TV und Nagra-Dekoding )
+
+Alt+0		:	Movieboost aus 
+Alt+6		:	Movieboost auf 16:9
+Alt+z		:	Movieboost kleiner
+Alt+h		:	Movieboost groesser
+
+Ctrl+0		:	Scale aus 
+Ctrl+6		:	Scale auf 16:9
+Ctrl+z		:	Scale kleiner
+Ctrl+h		:	Scale groesser
+
+Bild runter :   Bei Nagra weniger Testzeilen aus den alternative Testzeilen 
+Bild rauf	:   Bei Nagra mehr Testzeilen aus den alternative Testzeilen 
+
+Einfache Zahl : Umschalten auf Programm mir der Nummer XX
+
+
+Gruß Espresso 
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.5
+
+Diese Version wurde nie allgemein freigegeben. Die einzige Neuerung war der Colormixer, der als 
+Behindertensehhife eingesetzt wird. 
+Der Colormixer geht nur in der RGB-Ausgabe ( DIB und Surface ) bei dem Eingabeformat YUV
+
+Ich habe den drinnen gelassen. Vieleicht ist das Teil auch für andere interessant.
+
+
+Gruß Espresso 
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.4d
+
+* AutoLock nach Idee von HankoK verbessert!
+
+Funktionsweise: Die Stabilisierung lockt, wenn 25 bzw. 50 fps erreicht wurden!
+		Wenn die FPS-Rate dann eine gewisse Zeit(im NagraSetup einstellbar) unter
+		dem jeweiligen FPS-Schwellwert(Full-/HalveFrame) fällt unlockt sie wieder.
+		
+		Dadurch wird vermieden, daß wenn die FPS-Rate nur kurz zusammenbricht(schwarzes
+		Bild), 	nicht gleich eine neue Stab. gesucht wird.
+
+		Als FPS-Schwellwert kann ruhig 50/25 eingegeben werden!
+
+	Hinweis:Wenn die FPS-RATE unter dem eingestellten Schwellwert liegt, werden die verstrichenen
+		Sekunden in der Statuszeile angezeigt.
+
+		Wenn man zwischen Premiere und Teleclub am Reciever wechseln muß(Composite-Videoeingang)
+		erkennt AutoLock in Verbindung mit AutoDecode diesen Wechsel, und es wird eine neue
+		Stabilisierung gesucht!
+		 
+mfg
+
+/**************************************************************************************************************/
+
+		
+MultiDec Version 3.4c
+
+Da Espresso ja jetzt im Urlaub ist, hab ich die Zeit genutzt und ein Paar Funktionen in Multidec 3.4b hinzugefügt.
+Wenn die Veränderungen gefallen finden, könnten sie ja vielleicht in den nächsten Versionen beibehalten werden 
+oder von Espresso verbessert werden.
+
+Aber nun zu den Funktionen.
+
+* Umschalten von FullFrame(50fps) und HalfFrame(25fps) mit der Taste TAB während der Dekodierung möglich
+  
+* Veränderungen im Menüpunkt Nagravision-Setup
+
+	1. Es sind weitere 5 Testzeilen einstellbar.(Bitte Reihenfolge beachten!) Diese 
+	Testzeilen können dann auch während der Dekodierung mittels den Tasten "Bild auf" und
+	"Bild ab" eingestellt werden.
+	Dies ist nützlich wenn man zu viele Testzeilen eingestellt hat und man deshalb nicht auf 
+	z.B.:50 fps kommt.
+
+	2. Man kann auch noch 2 Frame-Werte einstellen.
+	Mit diesen 2 Werten kann man die Funktion AUTOLOCK(Noch in der Testphase) regeln.
+	Die 1.Zahl gibt an, ab welcher FPS-Rate die Stabilisierung locken soll.
+	Und wenn die Anzahl der FPS unter die 2.Zahl fällt, wird der Lock aufgehoben und es 
+	wird eine neue Stabilisation gesucht.
+	Diese Art des Automatischen Locks ist natürlich nicht perfekt, da die fps-Rate bei 
+	schwarzen Bildern oft in den Keller geht und der Lock deshalb aufgehoben wird. 
+	Aber vielleicht habt ihr irgendwelche Ideen, wie man diese Funktion verbessern könnte.
+  	
+	Diese 2 Framewerte beziehen sich übrigens auf den Fullframe-Modus!
+
+* AutoMovieboost (Alt + A) hinzugefügt(Funktioniert nur, wenn richtige Stabilisation aktiv ist!!!)
+
+* Bei mir trat jedes Mal ein Fehler auf, wenn ich in der INI TVSCREEN=FALSE eingestellt habe.
+  Dies funktioniert jetzt bei mir. Da dieser Bug aber nie in den PINBOARDS erwähnt wurde, weis ich 
+  nicht ob andere auch Probleme hatten.
+
+* Wie oben schon beschrieben wurde die Funktion AutoLock hinzugefügt, diese kann mit der Taste L
+  Ein und Aus - geschaltet werden.
+
+* Moviescaling und alle oben angeführten Funktionen in Multidec.ini einstellbar
+
+* Statusbar mit Taste S Ein/Aus - schaltbar
+  AutoDecode mit Taste A Ein/Aus - schaltbar
+  AutoLock mit Taste L Ein/Aus - schaltbar
+
+* Anzeige der Zustände AutoDecode, AutoLock, Full/Halve Frame und Anzahl der eingestellten 
+  Testzeilen, in Statusbar links unten, werden angezeigt.
+
+	AD......AutoDekode AN
+	MD......Manuelles einstellen der Dekodierung
+
+	AL......AutoLock AN
+	ML......Manuelles einstellen des Locks
+
+	HF......HalfFrame
+	FF......FullFrame
+
+	xxTZ....Anzahl der eingestellten Testzeilen
+
+
+(Leider werden die Werte der Stabilisierung beim Ändern der Testzeilen(Bild AUF/AB) und beim
+Umschalten von Full- auf HalfFrame(TAB) noch nicht übernommen, es muß also nach dem Umschalten 
+neu gelockt werden). Am besten funktioniert es, wenn AutoLock aktiviert ist!
+Aber wenn Espresso wieder da ist, weis er sicher Rat!
+
+ 
+Anmerkung: Diese Version wurde übrigens mit MS VC++ 5.0 erstellt und compiliert, meines Wissens benutzt Espresso
+	   eine neuere Version(6.x). Wenn also deshalb Probleme auftreten, müßte jemand den SourceCode neu Compilieren.
+  
+P.S.:Special thanks to stronzo12 for MS VC++5.0!!  
+
+mfg
+
+/**************************************************************************************************************/
+
+MultiDec Version 3.4b
+
+So kurz vor meinem Urlaub habe ich noch eine Reihe von Bugs gefixed
+
+Tschau Espresso
+
+/**************************************************************************************************************/
+
+MultiDec Version 3.4
+
+Ich habe Overlay neu gemacht und testen können !!
+
+Bester Performance bei Overlay und DirectX : Overlay-Streching verwenden  ( Beides im Menü Ausgabe )
+
+Im Surface bzw. im Overlay-Modus werden die Menüs nicht mehr überschrieben.
+
+
+Viel Spaß 
+
+Tschau Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.3
+
+VideoCrypt - Decodermodus eingebaut. (Menü Dekording)
+** Danke an NewMan für die Tabellen **
+
+Benutzung des DekoderModus
+
+Im Dekodermodus wir ein Teil des Bildes berechnet, um einen der
+256 Key zu finden. (Der aktuelle Berechnungsstand wird in der 
+Statuszeile ausgegeben.)
+Im Dekodiermodus kann mit der Taste F8 der MultiDec-VC-Decoder
+mit dem IRQ der TV-Karte syncronisiert werden. Dadurch wird es möglich
+alle weiteren Fields gänzlich ohne Berechnung auszugeben. Damit
+werden z.B. auch schwarze Bilder oder Bilder mit "schlechtem" Inhalt
+immer richtig ausgegeben. 
+
+
+** WICHTIG ** 
+
+Bitte löscht eure MatrixXX.idx Dateien. Die sind u.U nicht richtig
+und sollten neu erzeugt werden.
+
+Bug in der NagaDekodierung Mode ME MO entfernt. Die sollte nun
+einiges schneller sein. ( Das verschwinden der PAL-Plus-Zeile 
+wird nun für beiden Fields bei 16:9-Filmen vollständig kompensiert)
+
+Overlay noch etwas überarbeitet.
+
+
+Für alle mit Sound-Problemen !!!!!
+Ab der Version 3.3 wird der 3 Byte GPIO unterstützt.
+( Bisher nur 2 Byte )
+
+
+
+In der MultiDec.ini den Schalter SAVESETTING=FALSE; auf SAVESETTING=TRUE;
+Orginale TV-Soft starten und mit Bild und Ton laufen lassen.
+MultiDec starten!
+!!ACHTUNG!! 
+Beim Starten von MultiDec kann sich das System nun aufhängen.
+Also Doktorarbeit speichern;-)
+
+Es wurde im Programmverzeichniss von MultiDec eine Datei Setting.BT 
+erzeugt.
+Wichtig ist der letzte Abschnitt:
+Beispiel:
+*********************************************
+Ausgelesene Einträge für Eigenen KartenTyp
+Eintrag für BT848_GPIO_OUT_EN      65535     ( Schaltwert )
+Eintrag für BT848_GPIO_REG_INP         0     ( Input-Control )
+Eintrag für BT848_GPIO_DATA     16777204     ( Eingangswunsch) 
+*********************************************
+
+Diese Werte könnt Ihr nun im Menü BT8x8->TV-Karte->Eigenen Kartentyp erstellen
+eintragen. 
+BT848_GPIO_DATA bei dem gewählten Eingang oder einfach bei Ton AN.
+
+Klickt auf den Radio-Button neben eurem Toneingang um diesen Eingang zu testen.
+Klickt auf den Button Test. 
+Sind alle drei Werte richtig sollte nun Ton kommen.
+(Siehe auch version 2.4 )
+
+
+Für VideoCrypt habe ich die Farbdekodierung in MMX eingebaut. Ich hoffe
+das damit die Grundlage auch für eine bessere Dekodierung der 
+"Harten VC-Sender" geschaffen ist. Ich werde das als nächstes angehen. 
+
+
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.2
+
+
+Jede Menge neuer Kram 
+
+Audio : Diverse Bugs beim MSP-Support gefixed !
+        ( Volume - Ton an/aus )
+        Beim Umschalten wird jetzt der Ton ausgeblendet
+
+Neue Audio - Kontrolle : Der MSP-Equalizer kann nun eingestellt werden 
+
+Secam-Support in der Decodierung.
+
+Ausgabe:
+
+
+Automatische 15/16 Bit Erkennung
+
+Overlay-Support ist abhängig von der Graka. Ob die Graka Overlay kann könnt ihr unter BT8x8-Hardwareinfo
+erfahren. Ist dort verfügbar eingetragen, und es geht doch nicht liegt es in der Regel an der gewählten
+Auflösung !!!
+
+
+Raw-Surface/Raw-Overlay  : TV-Bild nearly ohne CPU-Last ( Kein Decording )
+                           Das BT-Risc-Programm schreibt in den Bildschirmpuffer
+
+Overlay-Support          : Es entfallt die RGB-Konvertierung (++++ Performance ++++ )
+                           ( Wenn die Graka es kann )
+Overlay-Streching        : Hardware-Sizing des Fensters 
+                           ( Wenn die Graka es kann )
+                            
+
+Y-Scaling nun auch sauber bei Free-TV.
+
+Im TV-Modus kann nun das Fenster verschoben werden. In den TV-Bildschirm mit linker Maustaste rein, drücken 
+und gedrückt halten und los gehts ( Achtung : Im Decoding-Modus sehr träge )
+
+
+
+Da meine Karte kein Overlay kann, danke ich an diese Stelle den Overlay-Testern ( MM und Thomimaus )
+
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 3.1b
+
+Just a BugFix : Tuner sollte jetzt wieder gehen !! Bitte noch einmal Stereo testen    
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+
+
+MultiDec Version 3.1   
+
+Ausgabe etwas schneller und sauberer
+
+Bug in der Kanalauswahl über Tastatus beseitigt.
+
+Neue Funktion:
+
+Durch Klicken der rechten Maustaste kann der Mauszeiger nun ein und 
+ausgeschaltet werden.
+
+Die folgenden Funktionen kann ich nicht testen, da meine TV-Karte
+nicht so einen Chip hat. (Nur Mono, Kein Radio (Miro PCTV))
+
+MSP3400 bzw MSP3410 (Nicam) Support
+
+Stereo und Mehrkanalton sollte nun laufen. Neuer Menübaum in 
+BT8x8->Einstellungen->MSP/Radio 
+
+Vorgehensweise:
+
+Ob eure Karte so ein Teil (und welches) könnt Ihr in dem Menu
+BT8x8->Hardware-Info ablesen.
+
+Im Menü BT8x8-Audio auf MSP/Radio schalten.
+
+Der MSP3400 kann (sollte) mit nicht Nicam-Einstellungen laufen,
+der MSP3410 mit den Nicam-Einstellungen.
+
+Vermutliche Einstellungen im Menü BT8x8->Einstellungen->MSP/Radio 
+
+
+MSP3400 : TV Terrestial FM-mono + FM-stereo
+          Major Carrier : PAl B/G
+		  Minor Carrier : PAL B/G FM-stereo
+		  
+MSP3410 : NICAM B/G, D/K
+          Major Carrier : PAl B/G
+		  Minor Carrier : PAL B/G NICAM
+
+(Ihr könnt auch automatische Einstellung probieren )
+
+Automatische Stereoanpassung:
+
+Wechselt ein Sender von Mono auf Stereo, wird automatisch 
+nachgezogen. ( Bei Mehrkanal-Ton muß diese Option wohl ausgeschaltet werden,
+und explizit auf einen Tonkanal geschaltet werden. ) 
+
+Probiert es aus und gebt Bescheid, da ich es nicht testen kann !!!!
+ 
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 3.0   
+
+Bug in der Ausgabe ( Farbfehler ) beseitigt.
+Beim Starten kann es bei älteren Versionen vorkommen, das kein Ton verfügbar war.
+Ich hoffe das Problem gefixed zu haben.
+
+Beim Umschalten von Decoding auf Normal-TV wird nun der Hintergrund gelöscht.
+
+
+Neue Funktion:
+
+Umschalten kann nun auch mit Eingabe der Programmnummer gemacht werden. Die Programm
+nummer ist die erste Zahl in der Kanalliste.
+
+Einfach z.B. eine 1 auf der Tastatur tippen und es wird umgeschaltet. 
+Das Umschalten erfolgt mit 1 Sekunde verzögerung ob der 1 u.U. noch eine weitere Zahl
+folgt. Bei zwei Zahlen wird sofort umgeschaltet.
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 2.9
+
+Alle Ausgabe-Funktionen überarbeitet !!
+
+Es ist nun möglich das Bild in Y-Richtung beliebig zu strecken .
+Damit sollte der schwarze Rand bei 800*600 verschwunden sein. 
+
+NEUE Funktionen
+
+Neues Menu: Scaling
+
+Die Funktion MovieBoost ist nun auch im nicht dekodermodus verfügbar.
+Damit kann bei Filmen die Ausgabe des schwarzen Randes unterdrückt werden.
+Das bring einigen Performancegewinn.
+
+Die Funktion Y-Strech wird z.B. ein 16:9 Film auf 4.3 umgerechnet. Damit können
+auch die schwarzen Ränder unterdrückt werden.
+
+
+Menü Decoding->NagraVision->Schwarz Schwellwert.
+
+Bei dunkelen Szenen ( oder auch bei Fußball, wo oben viele Zuschauer zu sehen sind )
+wurden Zeilen als Schwarz erkannt, die eigentlich keine sind. Bei Filmen ging die
+Framerate runter, bei Fußball war dies mit ein Grund für Aussetzer in der Dekodierung. 
+Diese Schwellwert kann nun eingestellt werden. Der Defaultwert ist 45,was eigenlich 
+bei allen Einstellungen passt. Mit einem reduzierten Wert ist einiges an Fine-Tuning 
+möglich.  
+
+Vorgehensweise: Einen schönen 16:9 ( oder Film mit schwarzem Rand ) sehen.
+			    Den Stabilisator mit F8 locken.
+				Den Schwellwert reduzieren, bis das Bild nicht mehr richtig dekodiert wird.
+				3-4 zum schwellwert addieren und das wars. 
+
+Achtung: Ein zu kleiner Schwellwert erzeugt Aussetzter in der Dekodierung !! 
+
+
+Menü Decoding-> Automatische Erkennung
+
+MuldiDec ist in der Lage das Schaltsignal für die Syster/Nagravision-Dekoder auszuwerten und
+kann nun den Dekodiermodus selbstständig ein bzw ausschalten. 
+
+Achtung : Diese Funktion liest die VBI-Daten ein und wertet diese entsprechend aus. 
+          Das führt zu einer höheren BUS-Last. Nicht so schnelle System sollten weiterhin 
+		  manuell geschaltet werden.
+
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 2.8
+
+Neue Funktion bei der Ausgabe ( Allways on Top ) 
+
+Bug bei der Bildstabilisierung bereiningt und einen im MatrixMode (ME oder MO)!
+Die Dekodierstörungen sollten verschwunden sein.
+Für langsame System kann in den entsprechenden Modis nun die Testzeilenanzahl 
+reduziert werden. Gute Ergebnisse bereits ab 12 Testzeilen ( Filmen ) 
+
+VideoText nutzt nun den angegebenen SeitenPuffer optimaler ( und richtig + Speed )
+und wird nun auch im VollbildModus ( NICHT Surface ) richtig unterstützt.
+
+Im DIB ist der Hintergrund schwarz.
+
+Fehler bei eigenen GPIO-Daten gefixed ( Es wurden nur 2 Byte statt der 3 Byte gesetzt )
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 2.7
+
+Neu Anzeigemodi eingefügt 
+
+- 15 Bit RGB555 Surface 
+- Es kann eine eigene Full-Screen Auflösung z.B ( 720 * 576 bei Matrox ) eingegeben werden 
+
+( Siehe Menu Ausgabe und Ausgabe->Art )
+
+
+Diverse Bugs gefixed. 
+Beim Verschieben vom Fenster,  Ausgeben  über darstellbare Grenzen und
+das Wegschalten der Statusanzeige führten in älteren Versionen zu Problemen. 
+
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 2.6
+
+Die HQ-Ausgabe ist noch einmal überarbeitet. 
+Es treten keine Farb-Störungen mehr auf.
+
+Diverse Bugs gefixed. 
+u.A.
+Der Fehler : Schreiben bei Tuner-Device sollte weg sein !!!
+
+
+VideoText in der Cache-Größe konfigurierbar.
+von 128 bis 800 ( Alle Seiten ) alles drinnen.
+
+BildStabilisierung genauer justiert.
+
+
+Tschau Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 2.5
+
+Die HQ-Ausgabe ist überarbeitet. Es sollten einige Störungen bei der Ausgabe der 
+Syster-Bilder weg sein.
+
+Bei 800x600 wird der Hintergrund geschwärzt.
+
+Die BildStabilisierung ist überarbeitet, da die Pal-Plus Zeile immer mehr verschwindet.
+
+Beim Starten des Dekoders wird automatisch der beste Dekodierungsmodus gesucht.
+Sie die Angaben in der Statuszeile.
+
+Beim Umschalten der einzelnen Modi kann es zu kurzen Störungen kommen. Das erkennen
+des besten Modus läuft am besten bei hellen Bildern.
+
+In der StatusZeile können folgende Angaben kommen:
+
++E0     / +O0              Zeile 0 Even / Odd vor der eigentlichen Dekodierung erkannt.
++HE0(x) / +HO0(x)          Zeile 0 Even / Odd vor der eigentlichen Dekodierung erkannt ( Ist im ersten Stück
+                           mit x Pixelschritten schwarz )
++E1     / +O1              Zeile 1 Even / Odd vor der eigentlichen Dekodierung erkannt.
++E285   / +O285            Zeile 285 Even / Odd vor der eigentlichen Dekodierung erkannt.
++E285   / +O286            Zeile 286 Even / Odd vor der eigentlichen Dekodierung erkannt.
+
++ME (x) / +MO(x)           Rand mit der Breite X erkannt.  ( z.B. 16:9 )
+
+Bei jedem diese Modi werden die Korrelationen, die nicht in Frage kommmen, auch nicht bewertet.
+( Bei Fußb. waren es 2 Zeilen pro Field ( E0+E286+O285+O286 )). Daher können diese Sendungen mit
+diesen Zusatzangaben deutlich stabieler und wg. Ausschluß etlicher Kombinationen auch schneller 
+dekodiert werden. 
+
+Der Modus E0/O0 bzw HE0/HO0 entspricht einem quasi PalPlus auf beiden Fields.
+Das bedeutet bei mir  50 FPS auf P200 bei 640*480. ( Für 800*600 ist die Kiste zu schlapp )
+
+
+Der StabilisierungsModus kann zur Laufzeit über die F9 - Taste auch ausgeschaltet werden, da die
+automatische Modussuche bei dunkelen Bildern vor die Pumpe läuft.
+
+Ist ein entsprechender Modus gefunden worden, so sollte dieser Modus mit der F8-Taste von Automatisch 
+auf Lock geschaltet werden. Im Lock-Modus wird die aktuelle Einstellung nicht mehr verändert. Dann stören
+auch keine dunkelen Stellen im Film mehr. Bei dunkelen Szenen geht die FPS/Rate etwas nach unten, da mehrer 
+Zeilen der gelockten Bedingung entsprechen d.h es müssen mehrere Korrelationen  berechnet werden müssen  
+
+Achtung : Ist der Modus Lock, so gilt dieser Modus auch nach z.B. umschalten auf einen anderen SysterSender.
+          Das Bild wird vermutlich nur mit Fehlern dekodiert werden. Das gleiche gilt für 2 aufeinander 
+		  folgende Filme. Jede Sendung kann auch einen anderen Modus haben.
+
+
+
+Weiter Audio-Parameter Sie Unten
+
+Tschau Espresso
+
+/**************************************************************************************************************/
+
+
+MultiDec Version 2.4
+
+Testweise Support für 849 und 879 eingebaut 
+
+Der Audio-Eingang ist nun frei konfigurierbar. 
+Damit können diverse Karten eingebunden werden.
+
+Neu sind die Dialoge im Menu BT8x8 -> TV-Karte -> Eigenen KartenTyp
+                             BT8x8 -> TV-Karte -> Eigenen Kartentyp einstellen
+                             BT8x8 -> TV-Karte -> Karte beim nächsten Start nicht anfassen
+
+Folgenden Funktionen :
+Menü BT8x8 -> Videoeingang -> Tuner beim nächsten Start nicht anfassen
+     BT8X8 -> TV-Karte -> Karte beim nächsten Start nicht anfassen
+Wer beide Punkte anwählt sollte mit gänzlich Unbekannten BT8x8 Karten arbeiten können.
+1. Orginale TV-Anwendung starten, alles einstellen und abschießen ( Taskmanager )
+2. MultiDec starten.
+
+Eigenen Kartentyp einstellen
+Damit ist es möglich eigene GPOI-Daten zu erstellen.
+Vorgehensweise :
+
+In der IniDatei MultiDec.ini  bitte folgenden Eintrag machen 
+SAVESETTING=TRUE;
+Orginale TV-Anwendung starten, alles Einstellen (TV-Bild muß zu sehen sein ) und laufen lassen. 
+Dabei MultiDec starten. ( Das dürfte in der Regen einen Hänger verursachen, aber entscheiden ist das
+auslesen der Werte aus dem BT. )
+
+Es wurde eine Datei Setting.BT erzeugt.
+In dieser Datei stehen die Werte für eure gewählte Einstellung.
+( Ein bischen Experimentierfreudigkeit ist schon gefragt )
+Diese können dann an die entsprechende Position in dezimal eingegeben werden.
+
+Der Wert für BT848_GPIO_OUT_EN ist in der Regel immer 65535 ( 0xffff );
+Ändert einen Wert (Tuner/Extern aus etc. ) und klick den Radio-Button neben der Zeile an. Klickt auf Test und die entsprechenden
+Werte werden gesetzt. 
+Wichtig sind eigentlich nur 3 Werte 
+BT848_GPIO_OUT_EN 
+BT848_GPIO_DATA (Tuner/Intern/Extern/An ) Dann einer für Ton, ob Tuner intern oder Extern ist egal, Radio wäre nicht so gut. (  kann auch 0 sein wie bei der LifeView FlyVideo II. )
+BT848_GPIO_DATA_AUS Ton aus , damit nach Programmende auch Ruhe ist 
+
+
+
+
+In den entsprechende Foren könnt ihr weitere Settings Posten.
+
+Alle NT-Besitzer will ich noch einmal auf die richtige und wichtige Einstellung des NTDRIVERNAME hinweisen !!!!! 
+
+Tschau Espresso 
+
+
+/**************************************************************************************************************/
+
+
+
+MultiDec Version 2.3b
+
+HotFIX
+
+Fehler bei der Auflösung bereinigt und
+Starten Stoppen vom orginalen NT-Treiber eingebaut.
+
+Es gibt bei manchen Treibern probleme wenn der noch läuft !!
+
+Muß in der INI eingtragen werden :
+Beispiel :
+
+; NTDRIVERNAME=                          Diese Variable muß bei NT gesetzt werden, wenn die Org. TV-Software installiert ist.
+;                                        Name des Gerätes der org. Software. ( Bei meiner Hauppage ist es hcw848nt )
+;                                        Ist abzulesen in der Registry unter HKLM\SYSTEM\CurrentControlSet\Services\XXXXX 
+;                                        Die Bezeichnung XXXXX ist einzutragen
+NTDRIVERNAME=hcw848nt; 
+
+
+/**************************************************************************************************************/
+
+
+
+MultiDec Version 2.3
+
+
+**************** Neue Funktionen *****************
+
+1. )
+
+Probleme mit unbekannten Tuners 
+
+
+Tuner Phillips FI1216MF MK2 
+
+
+
+
+Es ist nun möglich neue Tunerparameter zu implementieren.
+Menü BT8x8 -> Videoeingang -> Tuner -> Manuell
+
+Dazu müssen natürlich die Tunerparameter eingegeben werden. 
+Menü BT8x8 -> Videoeingang -> Tuner-Parameter Manuell
+
+
+
+Alternativ kann alles, was den Tuner angeht ausgeschaltet werden.
+Menü BT8x8 -> Videoeingang -> Tuner beim nächsten Start nicht anfassen
+Dazu muß erst mal Multidec gestarter werden, um diese Option zu setzen.
+Danach Multidec beenden und die orginal Software starten. Bitte den Tuner
+auf die entsprechende Frequenz eingestellen und diese Soft beenden. 
+Danach sollte Multidec auch ein Bild zeigen. Viele Menüoptionen sind in diesem 
+Modus deaktiviert. 
+
+
+Der bessere Weg ist aber die Tunerparameter heraus zu bekommen.
+
+
+
+Kleine Hilfe zur manuellen Tunereinstellung
+
+VHF-Low
+     Der erste Wert ist der Schwellwert. Ist die angegebene Frequenz
+	 ( in Mhz * 1000000) kleiner diesem Wert wird der Tuner mit der ID
+	 im zweiten Feld initialisiert. Diese Id ist ein Byte von 0 bis 255
+     Diese ID zwingt den Tuner in den angegebenen Frequezbereich.
+
+VHF-High
+     Der erste Wert ist der Schwellwert. Ist die angegebene Frequenz
+	 ( in Mhz * 1000000) kleiner diesem Wert wird der Tuner mit der ID 
+	 im zweiten Feld initialisiert. Diese Id ist ein Byte von 0 bis 255 
+     Diese ID zwingt den Tuner in den angegebenen Frequezbereich.
+
+UHF
+     Trifft keine der ersten beiden Bedingungen zu, so wird der Tuner 
+	 mit der ID initialisiert.
+     Diese Id ist ein Byte von 0 bis 255 
+
+Konfigurationsbyte
+     Dieses Byte teilt dem I2C-Bus mit, das am Tuner einstellungen
+	 vorgenommen werden sollen.
+     ( Ich denke es ist dann richtig, wenn bei einer Kanalsuche sich der Schnee verändert )
+     Diese Id ist ein Byte von 0 bis 255 
+
+I2C Bus-Adresse
+     Dieses Byte ist die Adresse am I2C-Bus.
+	 Mögliche Werte von 0xc0 bis 0xce (192 bis 206)
+     Multidec sucht diese Adresse automatisch.
+
+Frequenz-Offset
+     Die angegebene Frequenz ( in Mhz * 1000000) wird erst mit VHF-Low, 
+	 VHF-High oder UHF abgeprüft und die entsprechende Frequenz ID ermittelt.
+	 Als letztes wird dieser Offset zur Frequenz addiert. Werte von 0 bis 65535 sind zugelassen.
+
+
+
+2.) VideoText
+
+Ich habe den VideoText mit dem BT-Interrupt syncronisiert.
+
+Nun können Seiten auch ausgewäht werden, indem man einfach auf die Seitenzahl im VT-Fenster
+mit dem Mauszeiger klickt. 
+
+Der Cache für VT ist auf 256 Seiten vergrößert.
+
+
+**************** Änderungen *****************
+
+Nagra-Decoding : Es werden nun 96 Pixel/Zeile für die Korrelation genommen.
+
+Bei Halbbildern wird ein  neues eigenes Risc-Programm genommen. Dieses Transportiert auch
+nur noch das Halbbild über den PCI-Bus. ( Halbe Last ) Dadurch kann die Dekodierung bereits
+nach dem Odd-Field beginnen, da das Even-Field erst für das nächste Bild ist. 
+Damit kömmt mein P200 locker auf die 25 FPS bei PalPlus und 48 Testzeilen und Surface.
+
+BlackLine-Erkennung auf MMX-Basis und mit Koppelung and die Helligkeitssteuerung vom BT.
+Damit können u. U. weiter Zeilen für die Dekodierung ausgewertet werden.
+
+
+
+Tschau Espresso
+
+
+/**************************************************************************************************************/
+
+MultiDec Version 2.2
+
+Es handelt sich eigentlich um eine Testversion, aber ich möchte Sie 
+denoch freigeben. Alle, die das Problem mit den vielen doppelbildern haben,
+bzw. deswegen keine Sender finden :
+
+Im Menu BT8x8 mit den IFORM-Paramtern mal spielen !!!!
+
+Ursache ist eine andere Einstellung BIT 3 und 4 im IFORM Parameter.
+Warum ist mir nicht klar !!??
+
+
+Versucht einmal zu scannen mit :
+1. Ländereinstellung Deutsche Kanäle 
+2. Känale scannen gemäß Ländereinstellung
+
+Ist nix gefunden worden ( Dauer ca. 4 Minuten ) Schaltet im Menü
+
+BT8X8 den IFORM-Parameter mal von XT0 auf XT1 oder umgekehrt !!!!!
+
+Scan wiederholen.
+
+
+Sollte beim scannen über mehrere Frequenzen ein Blaues Bild erscheinen,
+so wählt eimal einen anderen Tuner aus ( Temic Pal oder Pilips Pal sollte gehen )
+
+
+Danke an alle Beta-Tester mit dem IFORM
+
+
+
+Tschau Espresso
+
+
+PS: Die Sourcen werde ich natürlich weiterhin freigeben, aber die Version 2.2 ist
+eigentlich noch nicht fertig. Ich werde daher diese Version noch nicht mit Sourcen
+weitergeben, es wird aber nachgeholt.
+
+/**************************************************************************************************************/
+
+
+Multidec Version 2.1
+
+Bug im Tunerbereich beseitigt.
+RISC-Programme Neu
+
+Kleine Anleitung:
+
+Es ist entscheidend, das der Tuner richtig eingestellt wird.
+In der Regel ist ein Philips oder Temic Pal Tuner vorhanden.
+Audio auf Extern, wenn dort ins System oder auf Lautsprecher gegangen wird.
+
+Probleme mit VideoText ??
+
+Stellt mal auf ARD oder ZDF. Ist der Text nicht lesbar oder keiner oder sind "Schmierzeichen"
+drinnen, ist der Sender nicht richtig eingestellt ( oder die Antenne )
+Versucht es mal mit Fine-Tuning
+Menü Kanäle -> Kanalliste 
+
+Doppelclick auf den Sender in der Liste und dann über + oder - ;
+Ihr könnt da auch den Sendernamen richtig eintragen.
+
+
+Ein fehlerhaftes Tuning ( z.B. um 0.25 Mhz ) führt auch zu fehlerhafter 
+Dekodierung .
+ 
+PS: Ich habe mir eine Haupage Win TV Radio ( BT878 ) besorgt und kann unter NT 4.0
+VideoText schauen . 
+
+
+Fragen im Forum Free-TV.
+
+Gruß Espresso
+
+
+/**************************************************************************************************************/
+
+
+Multidec Version 2.0
+
+Der gesamte Treiberbereich ist neu !
+
+Die gesamte Hard u. Software-Erkennung ist automatisch !!
+
+
+Es wird nun auch der BT878 und der BT848 unterstützt !!
+Ebenso ist ein Treiber für Win95 und NT 4.0 vorhanden !!
+( Für NT mit Administrator-Rechten, oder mit dem Recht Geräte/Dienste
+zu verwalten )
+Das NT-Gerät MultiDec BT8x8 wird beim Programmstart geladen und
+nach Programmende entfernt.
+
+
+Weitere Änderungen :
+
+**************** Haupage NT4.0 Videotext *******************
+
+Nagra : der Burst für die Farbphase wird ausgewertet
+
+Bei Vidoecrypt versuche ich derzeit einen Decoder-Modus zu bauen.
+Wer hat dazu Infos !!!!
+
+Tschau Espresso
+
+
+
+Systemvoraussetzungen :
+
+
+DirectX
+16 oder 15 Bit Graphikeinstellung
+Windows 95 ( 98 ) oder NT 4.0
+TV-Karte mit Bt8x8
+MMX-PC (Ohne MMX läuft nicht viel Nur VT RGB15/16 Kein Dekoder ); 
+
+/**************************************************************************************************************/
+
