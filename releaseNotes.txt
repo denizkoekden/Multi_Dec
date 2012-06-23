@@ -1,0 +1,90 @@
+Multidec 8.5 by R One (2003/03)
+===============================
+
+- Started to change the satellite stuff interface so that the satellite name appears.
+  There is now an external satellite list file. Still some work to do (particularly
+  about motorized antennas), plugins can now use that info.
+- Recording now works fine, no frame dropped. Generated files can be read with an
+  other player such as Windows Media Player (but not seeked in...).
+- Switching channel via keyboard when recording or playing is now disabled.
+- Added stuff for internationalization. English language supported. Some support exists
+  for Italian, Spanish and Portuguese (thanks to NeologiK), but resources still need to
+  be translated.
+
+Known bugs/limitations
+----------------------
+- You should not use the OSD when/for recording, some frames are getting lost and the
+  recording is not clean. Seems to be related with the interrupt handling when the OSD
+  is used.
+- Playing a recorded file does not seem to work at the first try. Retrying it works.
+- Seeking within recorded files with WMP does not work. May be I should add mpeg pack
+  start records or correct the bitrate at the BOF.
+- Still have to correct a couple of OSD screens for sound cut bug.
+- As MD9.X source was not made available, so I can't incorporate other bugs correction.
+- Some displayed EIT information seems incorrect (channels like Arte).
+
+Work planned
+------------
+- Use the PMT during channel switch in order to get dynamic PIDs.
+- Use display clipping when overlay mode is used, so that changing the display to RGB
+  when displaying menus or popups is no more necessary.
+- Add some code in order to be able to display unencrypted .VOB files and decode the
+  AC3 sound in them.
+- I don't have much time to develop these things, so it might come late...
+
+MD 8.4 by R One (not publicly released)
+=======================================
+
+- Merged the german 8.3a and the french 8.2Fr versions.
+- Added stuff for internationalization. French and german languages supported.
+- The OSD fonts can now be customized via an external file (osd_font.dat, in same directory
+  as the Root file). The included one has accentuated characters (for use in french, german...)
+- Canalsat Radio channels are remembered their radio names.
+- Better CA descriptors parsing in PMT. AC3 PIDs should now be automatically detected. Provider
+  files now merged into one single file (Multidec.prv)
+- A lot of cleanup, including moving big structures in malloc'ed memory, also removing all analog
+  related parts.
+- Programm.set files from previous 8.x versions are automatically converted to 8.4
+- The firmware file Boot_up.axf is not used anymore.
+- Escaped a bug within OSD : drawing dark chars on a white rectangle cause the sound to stop
+  (at least on my DVB-S Rev 1.3 card).
+
+Release notes for Multidec 8.3a (BigReaper):
+============================================
+
+- Ini-Handler did not correctly read out "LNB2_LOF_HIGH"-Value from INI-File.
+  Now it does. (thx to bix777)
+- MD 8.3a doesn't kill MD 8.2 programm.set files anymore. It uses the same programm.set like MD 8.2
+- improved the EPG (not perfect but better than in 8.2 and 8.3)
+- MD now remembers the following states:
+  - cursor state (visible / not visible)
+  - MD mute status
+  - system volume and system mute status and restores these system settings
+- DVB out only (key F12) has no function atm. Moto is working on it...
+- This version DOES NOT work with W2K & SP3!
+
+Release notes for Multidec 8.3:
+===============================
+
+- improved the EPG (not perfect but better than in 8.2)
+- added a quasi full screen mode (key F11) because I hated to hide the taskbar
+- volume regulation with the mouse wheel
+- little quicker program start (less pictures in the splash screen)
+- recording of movies that include a '?'-character is possible
+ (but I can't recommend you MD to record movies, use ProgDVB instead)
+- GeForce 2 users had a small white bar on the right screen side. This version fixed this thing
+- added the Windows-XP fix (but I didn't tested it. I only read about that in the irdeto4free forum).
+- No analog card support.
+
+Release notes for Multidec 8.2 Fr:
+==================================
+
+- Change l'aspect de la fenêtre principale
+  - Ajout de la fenêtre "FAVORIBOX" V1.0 Finale
+- Ajout d'un pas de Freq. pour le scan du cable
+- Ajout d'un pas de symbol pour le scan du cable
+- Ajout d'une val. min. de symbol pour le scan du cable
+- Ajout d'une val. max. de symbol pour le scan du cable
+
+
+

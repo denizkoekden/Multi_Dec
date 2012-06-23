@@ -1,0 +1,111 @@
+# Microsoft Developer Studio Generated Dependency File, included by MultiDec.mak
+
+.\Bt848.c : \
+	"..\bt8x8.dev\btiocom.h"\
+	"..\drvlib\windrvr.h"\
+	".\bt848.h"\
+	".\Globals.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\DVB.C : \
+	"..\drvlib\windrvr.h"\
+	"..\saa7146.dev\saaiocom.h"\
+	".\DVB.H"\
+	".\Globals.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\Dvr.c : \
+	"..\drvlib\windrvr.h"\
+	"..\saa7146.dev\saaiocom.h"\
+	".\Dvr.h"\
+	".\Globals.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\MixerDev.c : \
+	".\MixerDev.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\MultiDec.C : \
+	"..\drvlib\windrvr.h"\
+	".\Globals.h"\
+	".\inihand.c"\
+	".\MultiDec.H"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\MultiDec.RC : \
+	".\res\BirneGr.bmp"\
+	".\res\BirneRot.bmp"\
+	".\res\dank.bmp"\
+	".\res\Dlg_mark.bmp"\
+	".\Res\Dlg_play.bmp"\
+	".\res\DLG_Rec.bmp"\
+	".\RES\Dlg_Time.bmp"\
+	".\Res\Espresso.ico"\
+	".\res\FreeShop.bmp"\
+	".\res\No_Kabel.bmp"\
+	".\res\No_Sat.bmp"\
+	".\Res\OSD_Mark.bmp"\
+	".\Res\OSD_Play.bmp"\
+	".\Res\OSD_REc.bmp"\
+	".\Res\OSD_Time.bmp"\
+	".\res\OSDMute.bmp"\
+	".\res\OsdRec.bmp"\
+	".\RES\OSDRecP.BMP"\
+	".\RES\recordpa.bmp"\
+	".\Res\Sizex.cur"\
+	".\res\SliderH.bmp"\
+	".\res\SliderV.bmp"\
+	".\RES\STARTUP.BMP"\
+	".\RES\STARTUP1.BMP"\
+	".\RES\startup2.bmp"\
+	".\RES\startup3.bmp"\
+	".\RES\startup4.bmp"\
+	".\RES\startup5.bmp"\
+	".\Res\Vtback.ico"\
+	".\Res\Vthome.ico"\
+	".\Res\Vtnext.ico"\
+	".\Res\Vtupdown.ico"\
+	".\res\Werbe.bmp"\
+	
+
+.\Nagra.c : \
+	".\Nagra.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\RemoteC.c : \
+	".\Globals.h"\
+	".\RemoteC.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\Service.c : \
+	"..\drvlib\windrvr.h"\
+	".\Service.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\Sounddec.c : \
+	".\Sounddec.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\STATUS.C : \
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\vcrypt.c : \
+	".\vcrypt.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+.\vt.c : \
+	".\Globals.h"\
+	".\vt.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
